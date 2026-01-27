@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://csctodox8olax"]
+
+[ext_resource type="Script" uid="uid://nxhad7mv0tpl" path="res://scenes/Player/player.gd" id="1_1kbk7"]
+[ext_resource type="Texture2D" uid="uid://drn6kimo6i1yw" path="res://icon.svg" id="1_cyojo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cyojo"]
+size = Vector2(34, 36)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 6
+script = ExtResource("1_1kbk7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -15)
+zoom = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.28, 0.28)
+texture = ExtResource("1_cyojo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cyojo")
