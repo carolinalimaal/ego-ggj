@@ -13,6 +13,7 @@ script = ExtResource("1_1kbk7")
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -15)
 zoom = Vector2(2, 2)
+position_smoothing_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.28, 0.28)
