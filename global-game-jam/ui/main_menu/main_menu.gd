@@ -1,7 +1,7 @@
 extends Control
 
 @onready var main_menu_buttons: VBoxContainer = $Menu
-@onready var settings_menu: Control = $SettingsMenu # Arraste sua nova cena para cá
+@onready var settings_menu: Control = $SettingsMenu
 
 @onready var start_button: Button = $Menu/Control/Start
 @onready var settings_button: Button = $Menu/Control2/Settings

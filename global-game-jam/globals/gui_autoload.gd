@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-var gui_components : Dictionary = {
-	"pause_menu" : "uid://couqdco7mtoxw"
-}
+#var gui_components : Dictionary = {
+	#"pause_menu" : "uid://couqdco7mtoxw"
+#}
 
 var resolutions = {
 	"3840 x 2160": Vector2i(3840,2160),
@@ -16,11 +16,11 @@ var resolutions = {
 	"800 x 600": Vector2i(800,600)
 }
 
-func _ready() -> void:
-	for i in gui_components:
-		var new_scene = load(gui_components[i]).instantiate()
-		add_child(new_scene)
-		new_scene.hide()
+#func _ready() -> void:
+	#for i in gui_components:
+		#var new_scene = load(gui_components[i]).instantiate()
+		#add_child(new_scene)
+		#new_scene.hide()
 
 func center_window() -> void:
 	var screen_center = DisplayServer.screen_get_position() + DisplayServer.screen_get_size() / 2

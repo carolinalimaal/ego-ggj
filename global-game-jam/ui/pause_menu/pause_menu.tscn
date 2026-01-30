@@ -133,4 +133,5 @@ libraries/ = SubResource("AnimationLibrary_mnjdh")
 
 [node name="SettingsMenu" parent="." unique_id=1890138561 instance=ExtResource("2_jbgdu")]
 process_mode = 3
+visible = false
 layout_mode = 1

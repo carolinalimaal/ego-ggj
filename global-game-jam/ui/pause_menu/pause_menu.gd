@@ -1,7 +1,7 @@
 extends Control
 
 @onready var pause_panel: Panel = $Panel
-@onready var settings_menu: Control = $SettingsMenu # Arraste a cena reutilizável para o tscn do pause
+@onready var settings_menu: Control = $SettingsMenu
 
 @onready var resume_button: Button = $Panel/Menu/Control/Resume
 @onready var settings_button: Button = $Panel/Menu/Control2/Settings
