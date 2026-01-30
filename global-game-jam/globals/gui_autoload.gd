@@ -1,8 +1,7 @@
 extends CanvasLayer
 
 var gui_components : Dictionary = {
-	#"settings_menu" : "uid://o5kgpe620mq1",
-	#"pause_menu" : "uid://couqdco7mtoxw"
+	"pause_menu" : "uid://couqdco7mtoxw"
 }
 
 var resolutions = {
@@ -22,13 +21,6 @@ func _ready() -> void:
 		var new_scene = load(gui_components[i]).instantiate()
 		add_child(new_scene)
 		new_scene.hide()
-
-#func _input(_event: InputEvent) -> void:
-	#if Input.is_action_just_pressed("Pause"):
-		#var settings_menu = get_node("SettingsMenu")
-		#settings_menu.visible = !settings_menu.visible
-		#if settings_menu.visible:
-			#settings_menu.video.update_button_value()
 
 func center_window() -> void:
 	var screen_center = DisplayServer.screen_get_position() + DisplayServer.screen_get_size() / 2

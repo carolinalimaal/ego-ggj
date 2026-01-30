@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://couqdco7mtoxw"]
 
 [ext_resource type="Script" uid="uid://f2exb7jpqcyn" path="res://ui/pause_menu/pause_menu.gd" id="1_2n0y6"]
+[ext_resource type="PackedScene" uid="uid://o5kgpe620mq1" path="res://ui/settings_menu/settings_menu.tscn" id="2_jbgdu"]
 
 [sub_resource type="Animation" id="Animation_mnjdh"]
 length = 0.001
@@ -129,3 +130,7 @@ text = "Main Menu"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=738053573]
 libraries/ = SubResource("AnimationLibrary_mnjdh")
+
+[node name="SettingsMenu" parent="." unique_id=1890138561 instance=ExtResource("2_jbgdu")]
+process_mode = 3
+layout_mode = 1

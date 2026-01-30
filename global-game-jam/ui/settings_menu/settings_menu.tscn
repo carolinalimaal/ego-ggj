@@ -10,3 +10,188 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2adas")
+
+[node name="Panel" type="Panel" parent="." unique_id=883750885]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Settings" type="VBoxContainer" parent="Panel" unique_id=1495290269]
+custom_minimum_size = Vector2(100, 66)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Settings" unique_id=21528896]
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Panel/Settings" unique_id=1494448293]
+layout_mode = 2
+size_flags_vertical = 7
+
+[node name="Video" type="Button" parent="Panel/Settings/Control" unique_id=1530596559]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 15.5)
+text = "Video"
+
+[node name="Control2" type="Control" parent="Panel/Settings" unique_id=1107555827]
+layout_mode = 2
+size_flags_vertical = 7
+
+[node name="Audio" type="Button" parent="Panel/Settings/Control2" unique_id=576508007]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 15.5)
+text = "Audio"
+
+[node name="Video" type="VBoxContainer" parent="Panel" unique_id=1635555785]
+custom_minimum_size = Vector2(165, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -50.0
+offset_right = 82.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Video" unique_id=1555949530]
+layout_mode = 2
+text = "Video"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Video" unique_id=196275304]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="Panel/Video/HBoxContainer" unique_id=244632008]
+layout_mode = 2
+text = "Resolution"
+
+[node name="Resolution" type="OptionButton" parent="Panel/Video/HBoxContainer" unique_id=1853089123]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/Video" unique_id=1660575308]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="Panel/Video/HBoxContainer2" unique_id=1942221628]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="Fullscreen" type="CheckBox" parent="Panel/Video/HBoxContainer2" unique_id=544864877]
+layout_mode = 2
+
+[node name="Audio" type="VBoxContainer" parent="Panel" unique_id=228494794]
+custom_minimum_size = Vector2(195, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.5
+offset_top = -55.0
+offset_right = 97.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Audio" unique_id=302547240]
+layout_mode = 2
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Audio" unique_id=248923932]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Panel/Audio/HBoxContainer" unique_id=480080897]
+custom_minimum_size = Vector2(55, 25)
+layout_mode = 2
+text = "Master"
+
+[node name="master_slider" type="HSlider" parent="Panel/Audio/HBoxContainer" unique_id=1155837153]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/Audio" unique_id=999264939]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Panel/Audio/HBoxContainer2" unique_id=1905559853]
+custom_minimum_size = Vector2(55, 25)
+layout_mode = 2
+text = "Music"
+
+[node name="music_slider" type="HSlider" parent="Panel/Audio/HBoxContainer2" unique_id=836091903]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/Audio" unique_id=576468056]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Panel/Audio/HBoxContainer3" unique_id=485381030]
+custom_minimum_size = Vector2(55, 25)
+layout_mode = 2
+text = "SFX"
+
+[node name="sfx_slider" type="HSlider" parent="Panel/Audio/HBoxContainer3" unique_id=1795962608]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Panel" unique_id=1090135629]
+visible = false
+custom_minimum_size = Vector2(61, 31)
+layout_mode = 1
+anchors_preset = 0
+offset_right = 61.000004
+offset_bottom = 40.0
+
+[node name="Back" type="Button" parent="Panel/Control" unique_id=1852090871]
+custom_minimum_size = Vector2(62, 31)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
