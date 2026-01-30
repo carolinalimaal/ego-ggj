@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cbk1m1unc75kb" path="res://assets/tilesets/Floor Tiles1.png" id="1_fdeut"]
 [ext_resource type="PackedScene" uid="uid://csctodox8olax" path="res://scenes/player/player.tscn" id="2_htqbv"]
 [ext_resource type="PackedScene" uid="uid://couqdco7mtoxw" path="res://ui/pause_menu/pause_menu.tscn" id="3_kjnnb"]
+[ext_resource type="PackedScene" uid="uid://cpg3y8h2geukr" path="res://scenes/enemy/enemy.tscn" id="4_2m3tl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_htqbv"]
 texture = ExtResource("1_fdeut")
@@ -178,11 +179,14 @@ sources/1 = SubResource("TileSetAtlasSource_htqbv")
 [node name="Teste" type="Node2D" unique_id=1719436306]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1154382361]
-tile_map_data = PackedByteArray("AAAAAAAAAQABAAAAAAABAAAAAQABAAAAAAACAAAAAQABAAAAAAADAAAAAQABAAAAAAAEAAAAAQABAAAAAAAFAAAAAQABAAAAAAAGAAAAAQABAAAAAAAHAAAAAQABAAAAAAAIAAAAAQABAAEAAAAJAAAAAQABAAEAAAAJAP//AQABAAEAAAAKAAAAAQABAAEAAAAKAP//AQABAAEAAAAKAP7/AQABAAEAAAAJAP7/AQABAAAAAAAKAP3/AQABAAAAAAAIAP//AQABAAAAAAAAAP3/AQAAAAAAAAABAP3/AQAAAAAAAAACAP3/AQAAAAAAAAAEAP3/AQAAAAAAAAAFAP3/AQAAAAAAAAAAAPv/AQAAAAAAAAD///v/AQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAQABAAAAAAABAAAAAQABAAAAAAACAAAAAQABAAAAAAADAAAAAQABAAAAAAAEAAAAAQABAAAAAAAFAAAAAQABAAAAAAAGAAAAAQABAAAAAAAHAAAAAQABAAAAAAAIAAAAAQABAAEAAAAJAAAAAQABAAEAAAAJAP//AQABAAEAAAAKAAAAAQABAAEAAAAKAP//AQABAAEAAAAKAP7/AQABAAEAAAAJAP7/AQABAAAAAAAKAP3/AQABAAAAAAAIAP//AQABAAAAAAAAAP3/AQAAAAAAAAABAP3/AQAAAAAAAAACAP3/AQAAAAAAAAAEAP3/AQAAAAAAAAAFAP3/AQAAAAAAAAAAAPv/AQAAAAAAAAD///v/AQAAAAAAAAD7/wAAAQAAAAAAAAD8/wAAAQABAAAAAAD9/wAAAQABAAAAAAD+/wAAAQABAAAAAAD//wAAAQABAAAAAAD7////AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_okot0")
 
 [node name="Player" parent="." unique_id=513149867 instance=ExtResource("2_htqbv")]
 position = Vector2(37, -24)
+
+[node name="Enemy" parent="." unique_id=1203584704 instance=ExtResource("4_2m3tl")]
+position = Vector2(171, -120)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1211463451]
 
