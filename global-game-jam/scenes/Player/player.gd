@@ -12,13 +12,15 @@ var max_health: float = 100
 var health: float = max_health
 @export var speed: float = 125.0
 @export var acceleration: float = 20
-@export var desacceleration: float = 15
-@export var jump_velocity: float = -175.0
+@export var desacceleration: float = 25
+@export var jump_velocity: float = -300.0
 const max_jumps: int = 1
 var jumps: int = 0
 var move_direction: float = 0
 var facing: int = 1
-const Gravity: float = 400
+const gravity_jump: float = 700
+const gravity_fall: float = 1000
+const jump_multiplier: float = 0.5
 
 # input variables
 var key_up: bool = false
@@ -64,7 +66,7 @@ func getInputStates() -> void:
 
 
 
-func handleGravity(delta, gravity: float = Gravity) -> void:
+func handleGravity(delta, gravity: float = gravity_jump) -> void:
 	if(!is_on_floor()):
 		velocity.y += gravity * delta
 

@@ -11,7 +11,7 @@ func _update(_delta: float) -> void:
 	pass
 
 func _physics_update(delta: float) -> void:
-	owner_node.handleGravity(delta)
+	owner_node.handleGravity(delta, owner_node.gravity_fall)
 	owner_node.horizontalMovement()
 	owner_node.handleLanding()
 	
