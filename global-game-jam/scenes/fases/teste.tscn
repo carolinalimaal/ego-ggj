@@ -1,7 +1,8 @@
 [gd_scene format=4 uid="uid://cqp82uv7tkbnl"]
 
 [ext_resource type="Texture2D" uid="uid://cbk1m1unc75kb" path="res://assets/tilesets/Floor Tiles1.png" id="1_fdeut"]
-[ext_resource type="PackedScene" uid="uid://csctodox8olax" path="res://scenes/Player/player.tscn" id="2_htqbv"]
+[ext_resource type="PackedScene" uid="uid://csctodox8olax" path="res://scenes/player/player.tscn" id="2_htqbv"]
+[ext_resource type="PackedScene" uid="uid://couqdco7mtoxw" path="res://ui/pause_menu/pause_menu.tscn" id="3_kjnnb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_htqbv"]
 texture = ExtResource("1_fdeut")
@@ -182,3 +183,7 @@ tile_set = SubResource("TileSet_okot0")
 
 [node name="Player" parent="." unique_id=513149867 instance=ExtResource("2_htqbv")]
 position = Vector2(37, -24)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1211463451]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=466377671 instance=ExtResource("3_kjnnb")]
