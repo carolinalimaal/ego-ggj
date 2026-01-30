@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://csctodox8olax"]
+[gd_scene load_steps=10 format=3 uid="uid://csctodox8olax"]
 
 [ext_resource type="Script" uid="uid://nxhad7mv0tpl" path="res://scenes/Player/player.gd" id="1_1kbk7"]
 [ext_resource type="Texture2D" uid="uid://drn6kimo6i1yw" path="res://ui/icon.svg" id="1_cyojo"]
 [ext_resource type="Script" uid="uid://cgcun8ehvhwdt" path="res://state_machine/state_machine.gd" id="3_gqjuk"]
 [ext_resource type="Script" uid="uid://biwh6fl5vnwoh" path="res://scenes/Player/states/idle_state_player.gd" id="4_c4h5g"]
 [ext_resource type="Script" uid="uid://cb8ohx0a3td0a" path="res://scenes/Player/states/run_state_player.gd" id="5_uiqp4"]
+[ext_resource type="Script" uid="uid://cxcgrkn7voucn" path="res://scenes/Player/jump_state_player.gd" id="6_hvfru"]
+[ext_resource type="Script" uid="uid://c37yp34fxxf5w" path="res://scenes/Player/jump_peak_state_player.gd" id="7_a06cl"]
+[ext_resource type="Script" uid="uid://dpi7ej13hlyrd" path="res://scenes/Player/fall_state_player.gd" id="8_dl1wr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cyojo"]
 size = Vector2(34, 36)
@@ -25,8 +28,9 @@ texture = ExtResource("1_cyojo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_cyojo")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("_initial_state")]
 script = ExtResource("3_gqjuk")
+_initial_state = NodePath("IdleState")
 
 [node name="IdleState" type="Node" parent="StateMachine"]
 script = ExtResource("4_c4h5g")
@@ -35,7 +39,10 @@ script = ExtResource("4_c4h5g")
 script = ExtResource("5_uiqp4")
 
 [node name="JumpState" type="Node" parent="StateMachine"]
+script = ExtResource("6_hvfru")
 
 [node name="JumpPeakState" type="Node" parent="StateMachine"]
+script = ExtResource("7_a06cl")
 
 [node name="FallState" type="Node" parent="StateMachine"]
+script = ExtResource("8_dl1wr")

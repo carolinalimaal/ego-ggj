@@ -11,12 +11,13 @@ var max_health: float = 100
 var health: float = max_health
 @export var speed: float = 150.0
 @export var acceleration: float = 25
+@export var desacceleration: float = 20
 @export var jump_velocity: float = -175.0
 const max_jumps: int = 1
 var jumps: int = 0
 var move_direction: float = 0
 var facing: int = 1
-const gravity: float = 300
+const Gravity: float = 400
 
 # input variables
 var key_up: bool = false
@@ -37,15 +38,11 @@ func _ready() -> void:
 	
 	self.add_to_group("Player")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# getting inputs
-	#getInputStates()
+	getInputStates()
 	
 	# horizontal movement
-	handleGravity(delta)
-	#horizontalMovement()
-	#handleJump()
-	
 	move_and_slide()
 
 #endregion
@@ -65,16 +62,29 @@ func getInputStates() -> void:
 
 
 
-func handleGravity(delta) -> void:
+func handleGravity(delta, gravity: float = Gravity) -> void:
 	if(!is_on_floor()):
 		velocity.y += gravity * delta
-	else:
+
+func handleFalling():
+	if (!is_on_floor()):
+		state_machine.current_state.transition_to("FallState")
+	
+func handleLanding():
+	if (is_on_floor()):
 		jumps = 0
+		state_machine.current_state.transition_to("IdleState")
 
 func handleJump():
-	if (key_jump_pressed):
-		if (jumps < max_jumps):
-			velocity.y = jump_velocity
-			jumps += 1
+	if (key_jump_pressed) and (jumps < max_jumps):
+		jumps += 1
+		state_machine.current_state.transition_to("JumpState")
+
+func horizontalMovement() -> void:
+	move_direction = Input.get_axis("Left", "Right")
+	if (move_direction != 0):
+		velocity.x = move_toward(velocity.x , move_direction * speed, acceleration)
+	else:
+		velocity.x = move_toward(velocity.x , move_direction * speed, desacceleration)
 
 #endregion
