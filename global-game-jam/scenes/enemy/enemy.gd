@@ -10,6 +10,10 @@ var direction: int = 1
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 
+func _ready() -> void:
+	hitbox.body_entered.connect(_on_player_hitbox_entered)
+	hurtbox.body_entered.connect(_on_player_hurtbox_entered)
+
 func _physics_process(delta: float) -> void:
 	
 	if !is_on_floor():
@@ -23,6 +27,16 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = true
 	
 	velocity.x = direction * SPEED
-
-
+	
 	move_and_slide()
+
+func _on_player_hitbox_entered(body: Node2D):
+	if body is Player:
+		print("player morreu")
+		body.health = 0
+		body.queue_free()
+
+func _on_player_hurtbox_entered(body: Node2D):
+	if body is Player:
+		print("inimigo morreu")
+		queue_free()
