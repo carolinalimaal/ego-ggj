@@ -1,10 +1,14 @@
+class_name Player
 extends CharacterBody2D
 
 #region player variables
 
 # nodes
+@onready var state_machine: StateMachine = $StateMachine
 
 # physics variables
+var max_health: float = 100
+var health: float = max_health
 @export var speed: float = 150.0
 @export var acceleration: float = 25
 @export var jump_velocity: float = -175.0
@@ -24,16 +28,29 @@ var key_jump_pressed: bool = false
 
 #endregion
 
+#region main functions
+
+func _ready() -> void:
+	GlobalRefs.player = self
+	
+	state_machine.init(self)
+	
+	self.add_to_group("Player")
+
 func _physics_process(delta: float) -> void:
 	# getting inputs
-	getInputStates()
+	#getInputStates()
 	
 	# horizontal movement
 	handleGravity(delta)
-	horizontalMovement()
-	handleJump()
+	#horizontalMovement()
+	#handleJump()
 	
 	move_and_slide()
+
+#endregion
+
+#region custom functions
 
 func getInputStates() -> void:
 	key_up = Input.is_action_pressed("Up")
@@ -46,9 +63,7 @@ func getInputStates() -> void:
 	if (key_left): facing = -1
 	if (key_right): facing = 1
 
-func horizontalMovement() -> void:
-	move_direction = Input.get_axis("Left", "Right")
-	velocity.x = move_toward(velocity.x , move_direction * speed, acceleration)
+
 
 func handleGravity(delta) -> void:
 	if(!is_on_floor()):
@@ -61,4 +76,5 @@ func handleJump():
 		if (jumps < max_jumps):
 			velocity.y = jump_velocity
 			jumps += 1
-		
+
+#endregion
