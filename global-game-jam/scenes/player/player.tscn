@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://csctodox8olax"]
 
-[ext_resource type="Script" uid="uid://nxhad7mv0tpl" path="res://scenes/Player/player.gd" id="1_1kbk7"]
+[ext_resource type="Script" uid="uid://nxhad7mv0tpl" path="res://scenes/player/player.gd" id="1_1kbk7"]
 [ext_resource type="Script" uid="uid://cgcun8ehvhwdt" path="res://state_machine/state_machine.gd" id="3_gqjuk"]
-[ext_resource type="Script" uid="uid://biwh6fl5vnwoh" path="res://scenes/Player/states/idle_state_player.gd" id="4_c4h5g"]
-[ext_resource type="Script" uid="uid://cb8ohx0a3td0a" path="res://scenes/Player/states/run_state_player.gd" id="5_uiqp4"]
-[ext_resource type="Script" uid="uid://cxcgrkn7voucn" path="res://scenes/Player/states/jump_state_player.gd" id="6_hvfru"]
-[ext_resource type="Script" uid="uid://c37yp34fxxf5w" path="res://scenes/Player/states/jump_peak_state_player.gd" id="7_a06cl"]
-[ext_resource type="Script" uid="uid://dpi7ej13hlyrd" path="res://scenes/Player/states/fall_state_player.gd" id="8_dl1wr"]
+[ext_resource type="Script" uid="uid://biwh6fl5vnwoh" path="res://scenes/player/states/idle_state_player.gd" id="4_c4h5g"]
+[ext_resource type="Script" uid="uid://cb8ohx0a3td0a" path="res://scenes/player/states/run_state_player.gd" id="5_uiqp4"]
+[ext_resource type="Script" uid="uid://cxcgrkn7voucn" path="res://scenes/player/states/jump_state_player.gd" id="6_hvfru"]
+[ext_resource type="Script" uid="uid://c37yp34fxxf5w" path="res://scenes/player/states/jump_peak_state_player.gd" id="7_a06cl"]
+[ext_resource type="Script" uid="uid://dpi7ej13hlyrd" path="res://scenes/player/states/fall_state_player.gd" id="8_dl1wr"]
 [ext_resource type="Texture2D" uid="uid://1x1kj5j1yxwa" path="res://assets/player/player.png" id="8_wwtew"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dl1wr"]
