@@ -18,8 +18,8 @@ const max_jumps: int = 1
 var jumps: int = 0
 var move_direction: float = 0
 var facing: int = 1
-const gravity_jump: float = 700
-const gravity_fall: float = 1000
+@export var gravity_jump: float = 700
+@export var gravity_fall: float = 1000
 const jump_multiplier: float = 0.5
 
 # input variables
