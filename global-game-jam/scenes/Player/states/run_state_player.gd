@@ -1,4 +1,4 @@
-class_name RunStatePlayer
+#class_name RunStatePlayer
 extends State
 
 func _enter() -> void:

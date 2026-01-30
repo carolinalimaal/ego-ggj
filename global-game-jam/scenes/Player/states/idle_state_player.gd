@@ -1,4 +1,4 @@
-class_name IdleStatePlayer
+#class_name IdleStatePlayer
 extends State
 
 func _enter():

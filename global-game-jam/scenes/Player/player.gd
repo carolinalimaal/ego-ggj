@@ -5,13 +5,14 @@ extends CharacterBody2D
 
 # nodes
 @onready var state_machine: StateMachine = $StateMachine
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 # physics variables
 var max_health: float = 100
 var health: float = max_health
-@export var speed: float = 150.0
-@export var acceleration: float = 25
-@export var desacceleration: float = 20
+@export var speed: float = 125.0
+@export var acceleration: float = 20
+@export var desacceleration: float = 15
 @export var jump_velocity: float = -175.0
 const max_jumps: int = 1
 var jumps: int = 0
@@ -44,6 +45,7 @@ func _physics_process(_delta: float) -> void:
 	
 	# horizontal movement
 	move_and_slide()
+	handleAnimation()
 
 #endregion
 
@@ -66,19 +68,21 @@ func handleGravity(delta, gravity: float = Gravity) -> void:
 	if(!is_on_floor()):
 		velocity.y += gravity * delta
 
-func handleFalling():
+func handleFalling() -> void:
 	if (!is_on_floor()):
 		state_machine.current_state.transition_to("FallState")
 	
-func handleLanding():
+func handleLanding() -> void:
 	if (is_on_floor()):
 		jumps = 0
 		state_machine.current_state.transition_to("IdleState")
 
-func handleJump():
+func handleJump() -> void:
 	if (key_jump_pressed) and (jumps < max_jumps):
 		jumps += 1
+		sprite.play("jump_animation")
 		state_machine.current_state.transition_to("JumpState")
+		
 
 func horizontalMovement() -> void:
 	move_direction = Input.get_axis("Left", "Right")
@@ -86,5 +90,20 @@ func horizontalMovement() -> void:
 		velocity.x = move_toward(velocity.x , move_direction * speed, acceleration)
 	else:
 		velocity.x = move_toward(velocity.x , move_direction * speed, desacceleration)
+
+func handleAnimation() -> void:
+	sprite.flip_h = (facing < 0)
+	
+	if (is_on_floor()):
+		if (velocity.x != 0):
+			sprite.play("run_animation")
+		else:
+			sprite.play("idle_animation")
+	else:
+		if(velocity.y < 0 and sprite.animation != "jump_animation"):
+			sprite.play("jump_animation")
+		elif (velocity.y >= 0):
+			sprite.animation = "jump_animation"
+			sprite.frame = 3
 
 #endregion

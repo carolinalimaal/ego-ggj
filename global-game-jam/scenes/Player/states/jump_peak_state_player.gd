@@ -1,4 +1,4 @@
-class_name JumpPeakStatePlayer
+#class_name JumpPeakStatePlayer
 extends State
 
 func _enter() -> void:
