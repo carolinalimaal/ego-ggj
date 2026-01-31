@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Masks" format=3 uid="uid://cks2declt3mr8"]
+
+[ext_resource type="Texture2D" uid="uid://drn6kimo6i1yw" path="res://ui/icon.svg" id="1_lq6x3"]
+[ext_resource type="Script" uid="uid://d1glp60bx5qh8" path="res://masks/masks.gd" id="2_s353s"]
+
+[resource]
+script = ExtResource("2_s353s")
+name = "camaleon"
+image = ExtResource("1_lq6x3")
+colors = Array[Color]([Color(1, 0.011764706, 0, 1), Color(0, 0.50980395, 0.50980395, 1)])
+metadata/_custom_type_script = "uid://d1glp60bx5qh8"

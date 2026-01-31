@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Masks" format=3 uid="uid://bki8852hyvrhw"]
+
+[ext_resource type="Texture2D" uid="uid://drn6kimo6i1yw" path="res://ui/icon.svg" id="1_fewiy"]
+[ext_resource type="Script" uid="uid://d1glp60bx5qh8" path="res://masks/masks.gd" id="2_nc8xc"]
+
+[resource]
+script = ExtResource("2_nc8xc")
+name = "bat_mask"
+image = ExtResource("1_fewiy")
+can_invert_gravity = true
+metadata/_custom_type_script = "uid://d1glp60bx5qh8"

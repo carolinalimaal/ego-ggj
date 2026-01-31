@@ -110,12 +110,6 @@ animations = [{
 [node name="Player" type="CharacterBody2D" unique_id=585727632 groups=["Player"]]
 collision_mask = 14
 script = ExtResource("1_1kbk7")
-speed = null
-acceleration = null
-desacceleration = null
-jump_velocity = null
-gravity_jump = null
-gravity_fall = null
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1694553513]
 offset = Vector2(0, -15)
