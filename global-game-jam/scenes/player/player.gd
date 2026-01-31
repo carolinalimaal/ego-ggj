@@ -1,8 +1,6 @@
 class_name Player
 extends CharacterBody2D
 
-signal player_died
-
 #region player variables
 
 # nodes
@@ -45,7 +43,7 @@ var key_jump_pressed: bool = false
 #region main functions
 
 func _ready() -> void:
-	GlobalRefs.player = self
+	GameManager.register_player(self)
 	
 	state_machine.init(self)
 	
@@ -53,6 +51,9 @@ func _ready() -> void:
 	
 	addMask(camaleon_mask)
 	addMask(bat_mask)
+	
+	if GameManager.current_checkpoint_pos != Vector2.ZERO:
+		global_position = GameManager.current_checkpoint_pos
 
 func _physics_process(_delta: float) -> void:
 	# getting inputs
@@ -79,7 +80,6 @@ func getInputStates() -> void:
 	if (key_right): facing = 1
 
 
-
 func handleGravity(delta, gravity: float = gravity_jump) -> void:
 	if(!is_on_floor()):
 		velocity.y += gravity * delta
@@ -100,8 +100,6 @@ func handleJump() -> void:
 		jumps += 1
 		sprite.play("jump_animation")
 		state_machine.current_state.transition_to("JumpState")
-		
-		
 
 func horizontalMovement() -> void:
 	if GameManager.can_move:
@@ -110,21 +108,6 @@ func horizontalMovement() -> void:
 			velocity.x = move_toward(velocity.x , move_direction * speed, acceleration)
 		else:
 			velocity.x = move_toward(velocity.x , move_direction * speed, desacceleration)
-
-func handleAnimation() -> void:
-	sprite.flip_h = (facing < 0)
-	
-	if (is_on_floor()):
-		if (velocity.x != 0):
-			sprite.play("run_animation")
-		else:
-			sprite.play("idle_animation")
-	else:
-		if(velocity.y < 0 and sprite.animation != "jump_animation"):
-			sprite.play("jump_animation")
-		elif (velocity.y >= 0):
-			sprite.animation = "jump_animation"
-			sprite.frame = 3
 
 func changePlataformColor() -> void:
 	print("Mudou")
@@ -164,5 +147,24 @@ func addMask(mask: Masks):
 	masks.append(mask)
 	print("Mascara adicioanda: ", mask.name)
 
+func handleAnimation() -> void:
+	sprite.flip_h = (facing < 0)
+	
+	if (is_on_floor()):
+		if (velocity.x != 0):
+			sprite.play("run_animation")
+		else:
+			sprite.play("idle_animation")
+	else:
+		if(velocity.y < 0 and sprite.animation != "jump_animation"):
+			sprite.play("jump_animation")
+		elif (velocity.y >= 0):
+			sprite.animation = "jump_animation"
+			sprite.frame = 3
+
+func respawn(spawn_pos: Vector2) -> void:
+	global_position = spawn_pos
+	velocity = Vector2.ZERO
+	state_machine.current_state.transition_to("IdleState")
 
 #endregion

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bywu7cmv7hsy2" path="res://assets/enemy/slime_green.png" id="1_4a83h"]
 [ext_resource type="Script" uid="uid://cf53vj1sn6jlv" path="res://scenes/enemy/enemy.gd" id="1_a3pup"]
+[ext_resource type="Script" uid="uid://cwc386mej7184" path="res://scenes/killzone/killzone.gd" id="3_40wdo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3pup"]
 atlas = ExtResource("1_4a83h")
@@ -43,10 +44,7 @@ animations = [{
 size = Vector2(14, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40wdo"]
-size = Vector2(18, 13)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3pup"]
-size = Vector2(12, 6)
+size = Vector2(16, 13)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1203584704]
 collision_layer = 2
@@ -61,21 +59,6 @@ autoplay = "default"
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_nbhyu")
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=361404253]
-position = Vector2(0, 2)
-
-[node name="HitboxCollision" type="CollisionShape2D" parent="Hitbox" unique_id=1546988825]
-position = Vector2(0, 3.5)
-shape = SubResource("RectangleShape2D_40wdo")
-debug_color = Color(1, 0, 0, 0.41960785)
-
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1878086958]
-position = Vector2(0, -1)
-
-[node name="HurtboxCollision" type="CollisionShape2D" parent="Hurtbox" unique_id=542908778]
-shape = SubResource("RectangleShape2D_a3pup")
-debug_color = Color(1, 1, 0, 0.41960785)
-
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1417918546]
 position = Vector2(0, 5)
 target_position = Vector2(-10, 0)
@@ -85,3 +68,14 @@ collision_mask = 6
 position = Vector2(0, 5)
 target_position = Vector2(10, 0)
 collision_mask = 6
+
+[node name="Killzone" type="Area2D" parent="." unique_id=1446166034]
+position = Vector2(0, 2)
+collision_layer = 0
+script = ExtResource("3_40wdo")
+metadata/_custom_type_script = "uid://cwc386mej7184"
+
+[node name="KillzoneCollision" type="CollisionShape2D" parent="Killzone" unique_id=1546988825]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_40wdo")
+debug_color = Color(1, 0, 0, 0.41960785)
