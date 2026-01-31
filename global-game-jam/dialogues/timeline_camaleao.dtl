@@ -1,4 +1,4 @@
-if {pegouMascara1} == false:
+if {pegouMascaraCamaleao} == false:
 	character_desconhecido: Aahhh!
 	character_desconhecido: Como você me achou? ...Quer dizer, eu estou piscando.
 	character_desconhecido: Aconteceu com você também? Eu acordei confuso e agora estou nervoso com tudo isso, como você pôde perceber.
@@ -10,6 +10,6 @@ if {pegouMascara1} == false:
 	Nim recebeu a máscara do Camaleão. Para usá-la, aperte "1".
 	character_camaleao: Isso é tudo que posso fazer. Faça bom uso e nos encontraremos em breve, libertos e felizes...
 	character_camaleao: Até mais, Nim, meu novo amigo!
-	set {pegouMascara1} = true
+	set {pegouMascaraCamaleao} = true
 else:
 	character_camaleao: ... ... ... ...
