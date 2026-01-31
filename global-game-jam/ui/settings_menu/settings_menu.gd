@@ -60,9 +60,22 @@ func _on_back_button_pressed() -> void:
 		self.hide()
 
 # == LÓGICA DE VÍDEO ==
+#func _on_resolution_option_button_item_selected(index: int) -> void:
+	#var key = resolution_option_button.get_item_text(index)
+	#get_window().set_size(GUI.resolutions[key])
+	#GUI.center_window()
+
 func _on_resolution_option_button_item_selected(index: int) -> void:
 	var key = resolution_option_button.get_item_text(index)
+	
+	# Se estiver em Fullscreen, mude para Windowed primeiro
+	if get_window().mode == Window.MODE_FULLSCREEN:
+		get_window().mode = Window.MODE_WINDOWED
+		fullscreen_checkbox.button_pressed = false
+	# Aplica o novo tamanho
 	get_window().set_size(GUI.resolutions[key])
+	# Dá um tempo para o sistema operacional processar antes de centralizar
+	await get_tree().process_frame
 	GUI.center_window()
 
 func _on_fullscreen_checkbox_toggled(toggled_on: bool) -> void:
