@@ -34,10 +34,9 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ivh6b"]
 radius = 8.0
-height = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m5fb5"]
-radius = 16.0
+radius = 15.0
 
 [node name="Morcego" type="CharacterBody2D" unique_id=1707785940]
 collision_layer = 8

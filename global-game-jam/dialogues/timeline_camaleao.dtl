@@ -5,7 +5,8 @@ if {pegouMascara1} == false:
 	character_desconhecido: Nossa, me desculpe. Não me apresentei. Eu sou o Camaleão e você é?
 	character_camaleao: Nim... Combina com você. Mas afinal, com todo esse caos, o que você está fazendo andando por aí sozinho?
 	character_camaleao: Uau, você é realmente corajoso procurando por quem causou essa confusão!
-	character_camaleao: Bom... eu não consigo ir com você, Nim. Mas posso lhe entregar o que tenho de mais importante comigo. Será de grande ajuda para você prossiguir sua jornada e nos libertar desse caos.
+	character_camaleao: Bom... eu não consigo ir com você, Nim. Mas posso lhe entregar o que tenho de mais importante comigo.
+	character_camaleao: Será de grande ajuda para você prossiguir sua jornada e nos libertar desse caos.
 	Nim recebeu a máscara do Camaleão. Para usá-la, aperte "1".
 	character_camaleao: Isso é tudo que posso fazer. Faça bom uso e nos encontraremos em breve, libertos e felizes...
 	character_camaleao: Até mais, Nim, meu novo amigo!

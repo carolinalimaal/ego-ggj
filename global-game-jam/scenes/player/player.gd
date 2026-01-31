@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+signal player_died
+
 #region player variables
 
 # nodes
@@ -80,18 +82,19 @@ func handleLanding() -> void:
 		state_machine.current_state.transition_to("IdleState")
 
 func handleJump() -> void:
-	if (key_jump_pressed) and (jumps < max_jumps):
+	if (key_jump_pressed) and (jumps < max_jumps) and GameManager.can_move:
 		jumps += 1
 		sprite.play("jump_animation")
 		state_machine.current_state.transition_to("JumpState")
 		
 
 func horizontalMovement() -> void:
-	move_direction = Input.get_axis("Left", "Right")
-	if (move_direction != 0):
-		velocity.x = move_toward(velocity.x , move_direction * speed, acceleration)
-	else:
-		velocity.x = move_toward(velocity.x , move_direction * speed, desacceleration)
+	if GameManager.can_move:
+		move_direction = Input.get_axis("Left", "Right")
+		if (move_direction != 0):
+			velocity.x = move_toward(velocity.x , move_direction * speed, acceleration)
+		else:
+			velocity.x = move_toward(velocity.x , move_direction * speed, desacceleration)
 
 func handleAnimation() -> void:
 	sprite.flip_h = (facing < 0)

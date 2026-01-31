@@ -26,7 +26,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 		if !is_talking:
 			is_talking = true
 			Dialogic.start(dialogue_timeline)
-		
+			Dialogic.timeline_started.emit()
 
 func _on_interact_area_entered(body: Node2D) -> void:
 	if body is Player:

@@ -25,6 +25,7 @@ buses/default_bus_layout="uid://b8451sad5bcxv"
 
 [autoload]
 
+GameManager="*uid://4pppxxkuigyv"
 GlobalRefs="*res://globals/global_refs.gd"
 GUI="*uid://dfi0i4i1qdny4"
 Dialogic="*uid://ds2q0uclmolvu"
@@ -40,7 +41,10 @@ directories/dtl_directory={
 "timeline_camaleao": "res://dialogues/timeline_camaleao.dtl",
 "timeline_morcego": "res://dialogues/timeline_morcego.dtl"
 }
-layout/style_directory={}
+layout/style_directory={
+"": "res://ui/dialogue_box/dialogue_box.tres",
+"dialogue_box": "res://ui/dialogue_box/dialogue_box.tres"
+}
 variables={
 "pegouMascara1": false,
 "pegouMascara2": false
@@ -64,7 +68,7 @@ choices/delay=0.2
 choices/reveal_delay=0
 choices/reveal_by_input=false
 translation/enabled=false
-translation/original_locale="en"
+translation/original_locale="pt"
 translation/file_mode=1
 translation/translation_folder=""
 translation/save_mode=0
@@ -84,17 +88,20 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
-layout/style_list=["res://dialogues/New_File.tres"]
-layout/default_style="res://dialogues/New_File.tres"
+layout/style_list=["res://ui/dialogue_box/dialogue_box.tres"]
+layout/default_style="res://ui/dialogue_box/dialogue_box.tres"
 text/input_action="dialogic_default_action"
 text/autocolor_names=true
 audio/type_sound_bus="Master"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
