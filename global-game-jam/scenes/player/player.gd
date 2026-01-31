@@ -25,12 +25,13 @@ var facing: int = 1
 const jump_multiplier: float = 0.5
 
 # masks variables
+enum Mascaras {NENHUMA, CAMALEON, BAT}
 var camaleon_mask: Masks = load("res://masks/resources/camaleon_mask.tres")
 var bat_mask: Masks = load("res://masks/resources/bat_maks.tres")
-var masks: Array[Masks] = []
-var mask_active_index: int = -1
-var can_change_plataform_color: bool = false
+var mask_active = Mascaras.NENHUMA
+var can_change_plataform_colision: bool = false
 var can_invert_gravity: bool = false
+var anti_gravity: bool = false
 
 # input variables
 var key_up: bool = false
@@ -51,17 +52,18 @@ func _ready() -> void:
 	
 	self.add_to_group("Player")
 	
-	addMask(camaleon_mask)
-	addMask(bat_mask)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	# getting inputs
 	getInputStates()
 	
 	# horizontal movement
+	handleGravity(delta)
 	move_and_slide()
 	handleAnimation()
 	handleMaskActivation()
+	
+	
 
 #endregion
 
@@ -81,22 +83,28 @@ func getInputStates() -> void:
 
 
 func handleGravity(delta, gravity: float = gravity_jump) -> void:
-	if(!is_on_floor()):
+	if !anti_gravity:
 		velocity.y += gravity * delta
+	else:
+		velocity.y -= gravity * delta
 
 func handleFalling() -> void:
-	if (!is_on_floor()):
-		state_machine.current_state.transition_to("FallState")
+	if anti_gravity:
+		if (!is_on_ceiling()):
+			state_machine.current_state.transition_to("FallState")
+	else:
+		if (!is_on_floor()):
+			state_machine.current_state.transition_to("FallState")
 	
 func handleLanding() -> void:
-	if (is_on_floor()):
+	if (is_on_floor() or is_on_ceiling()):
 		jumps = 0
 		state_machine.current_state.transition_to("IdleState")
 
 func handleJump() -> void:
 	if (key_jump_pressed) and (jumps < max_jumps) and GameManager.can_move:
-		if (can_change_plataform_color):
-			changePlataformColor()
+		if (can_change_plataform_colision):
+			changePlataformColision()
 		jumps += 1
 		sprite.play("jump_animation")
 		state_machine.current_state.transition_to("JumpState")
@@ -114,55 +122,56 @@ func horizontalMovement() -> void:
 func handleAnimation() -> void:
 	sprite.flip_h = (facing < 0)
 	
-	if (is_on_floor()):
+	if (is_on_floor() or is_on_ceiling()):
 		if (velocity.x != 0):
 			sprite.play("run_animation")
 		else:
 			sprite.play("idle_animation")
 	else:
-		if(velocity.y < 0 and sprite.animation != "jump_animation"):
-			sprite.play("jump_animation")
-		elif (velocity.y >= 0):
-			sprite.animation = "jump_animation"
-			sprite.frame = 3
+		if !anti_gravity:
+			if(velocity.y < 0 and sprite.animation != "jump_animation"):
+				sprite.play("jump_animation")
+			elif (velocity.y >= 0):
+				sprite.animation = "jump_animation"
+				sprite.frame = 3
+		else:
+			if(velocity.y > 0 and sprite.animation != "jump_animation"):
+				sprite.play("jump_animation")
+			elif (velocity.y <= 0):
+				sprite.animation = "jump_animation"
+				sprite.frame = 3
 
-func changePlataformColor() -> void:
-	print("Mudou")
+func changePlataformColision() -> void:
+	if (!get_collision_mask_value(5) and !get_collision_mask_value(6)):
+		set_collision_mask_value(5, true)
+		return
+	if (get_collision_mask_value(5)):
+		set_collision_mask_value(6, true)
+		set_collision_mask_value(5, false)
+		return
+	if (get_collision_mask_value(6)):
+		set_collision_mask_value(6, false)
+		set_collision_mask_value(5, true)
+		return 
 
 func handleMaskActivation() -> void:
-	if (len(masks) > 0):
-		if Input.is_action_just_pressed("mask_1"):
-			if (mask_active_index == -1 or mask_active_index == 1):
-				print("Ativando mascara 0")
-				if mask_active_index == 1:
-					print("mascara 1 desativada")
-				can_change_plataform_color = true
-				can_invert_gravity = false
-				mask_active_index = 0
-			elif mask_active_index == 0:
-				print("Desativando mascara 0")
-				can_change_plataform_color = false
-				mask_active_index = -1
-	if (len(masks) == 2):
-		if Input.is_action_just_pressed("mask_2"):
-			if (mask_active_index == -1 or mask_active_index == 0):
-				print("Ativando mascara 1")
-				if mask_active_index == 0:
-					print("mascara 0 desativada")
-				can_change_plataform_color = false
-				can_invert_gravity = true
-				mask_active_index = 1
-			elif mask_active_index == 1:
-				print("Desativando mascara 1")
-				can_invert_gravity = false
-				mask_active_index = -1
+	pass
 
-func addMask(mask: Masks):
-	if masks.has(mask):
-		return
-	
-	masks.append(mask)
-	print("Mascara adicioanda: ", mask.name)
+func setCmalaeonMask(mask: Masks):
+	camaleon_mask = mask
 
+func setBatMask(mask: Masks):
+	bat_mask = mask
 
 #endregion
+
+
+func _on_anti_gravity_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player") and !anti_gravity:
+		if can_invert_gravity:
+			anti_gravity = true
+			sprite.flip_v = true
+	elif body.is_in_group("Player") and anti_gravity:
+		if can_invert_gravity:
+			anti_gravity = false
+			sprite.flip_v = false
