@@ -46,7 +46,10 @@ func _on_player_died() -> void:
 func change_level(next_scene_path: String) -> void:
 	current_checkpoint_pos = Vector2.ZERO
 	
-	get_tree().change_scene_to_file(next_scene_path)
+	call_deferred("_deferred_change_scene", next_scene_path)
+
+func _deferred_change_scene(path: String) -> void:
+	get_tree().change_scene_to_file(path)
 
 # == REGISTRAR PLAYER NO GAME == 
 func register_player(player: Player) -> void:
