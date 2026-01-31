@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://div3ry4odrjfm"]
+
+[ext_resource type="Texture2D" uid="uid://1x1kj5j1yxwa" path="res://assets/player/player.png" id="1_ivh6b"]
+[ext_resource type="Script" uid="uid://bjtj67wgo23kq" path="res://scenes/npcs/npc.gd" id="1_m5fb5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5fb5"]
+atlas = ExtResource("1_ivh6b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ejjj"]
+atlas = ExtResource("1_ivh6b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1a37"]
+atlas = ExtResource("1_ivh6b")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uit3j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5fb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ejjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1a37")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ivh6b"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m5fb5"]
+radius = 16.0
+
+[node name="Camaleao" type="CharacterBody2D" unique_id=1707785940]
+collision_layer = 8
+collision_mask = 13
+script = ExtResource("1_m5fb5")
+dialogue_timeline = "timeline_camaleao"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1164386982]
+modulate = Color(0, 1, 0, 1)
+sprite_frames = SubResource("SpriteFrames_uit3j")
+autoplay = "default"
+flip_h = true
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1027438039]
+shape = SubResource("CapsuleShape2D_ivh6b")
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=1638169952]
+
+[node name="InteractCollision" type="CollisionShape2D" parent="InteractArea" unique_id=2010269213]
+shape = SubResource("CircleShape2D_m5fb5")
+debug_color = Color(0.8941186, 0.00020715475, 0.77690995, 0.41960785)

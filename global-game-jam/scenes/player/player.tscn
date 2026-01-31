@@ -108,7 +108,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=585727632 groups=["Player"]]
-collision_mask = 6
+collision_mask = 14
 script = ExtResource("1_1kbk7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1694553513]

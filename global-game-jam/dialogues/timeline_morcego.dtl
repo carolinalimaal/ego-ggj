@@ -1,0 +1,5 @@
+if {pegouMascara2} == false:
+	teste
+	set {pegouMascara2} = true
+else:
+	character_morcego: ... ...

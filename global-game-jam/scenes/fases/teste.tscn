@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://csctodox8olax" path="res://scenes/player/player.tscn" id="2_htqbv"]
 [ext_resource type="PackedScene" uid="uid://couqdco7mtoxw" path="res://ui/pause_menu/pause_menu.tscn" id="3_kjnnb"]
 [ext_resource type="PackedScene" uid="uid://cpg3y8h2geukr" path="res://scenes/enemy/enemy.tscn" id="4_2m3tl"]
+[ext_resource type="PackedScene" uid="uid://div3ry4odrjfm" path="res://scenes/npcs/camaleao.tscn" id="5_74icw"]
+[ext_resource type="PackedScene" uid="uid://yo2q0aldgmhu" path="res://scenes/npcs/morcego.tscn" id="6_i3s2e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_htqbv"]
 texture = ExtResource("1_fdeut")
@@ -178,6 +180,10 @@ sources/1 = SubResource("TileSetAtlasSource_htqbv")
 
 [node name="Teste" type="Node2D" unique_id=1719436306]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1211463451]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=466377671 instance=ExtResource("3_kjnnb")]
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1154382361]
 tile_map_data = PackedByteArray("AAAAAAAAAQABAAAAAAABAAAAAQABAAAAAAACAAAAAQABAAAAAAADAAAAAQABAAAAAAAEAAAAAQABAAAAAAAFAAAAAQABAAAAAAAGAAAAAQABAAAAAAAHAAAAAQABAAAAAAAIAAAAAQABAAEAAAAJAAAAAQABAAEAAAAJAP//AQABAAEAAAAKAAAAAQABAAEAAAAKAP//AQABAAEAAAAKAP7/AQABAAEAAAAJAP7/AQABAAAAAAAKAP3/AQABAAAAAAAIAP//AQABAAAAAAAAAP3/AQAAAAAAAAABAP3/AQAAAAAAAAACAP3/AQAAAAAAAAAEAP3/AQAAAAAAAAAFAP3/AQAAAAAAAAAAAPv/AQAAAAAAAAD///v/AQAAAAAAAAD7/wAAAQAAAAAAAAD8/wAAAQABAAAAAAD9/wAAAQABAAAAAAD+/wAAAQABAAAAAAD//wAAAQABAAAAAAD7////AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_okot0")
@@ -188,6 +194,8 @@ position = Vector2(37, -24)
 [node name="Enemy" parent="." unique_id=1203584704 instance=ExtResource("4_2m3tl")]
 position = Vector2(171, -120)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1211463451]
+[node name="Camaleao" parent="." unique_id=1707785940 instance=ExtResource("5_74icw")]
+position = Vector2(234, -19)
 
-[node name="PauseMenu" parent="CanvasLayer" unique_id=466377671 instance=ExtResource("3_kjnnb")]
+[node name="Morcego" parent="." unique_id=294582967 instance=ExtResource("6_i3s2e")]
+position = Vector2(-11, -176)
