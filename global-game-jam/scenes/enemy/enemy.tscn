@@ -1,33 +1,20 @@
 [gd_scene format=3 uid="uid://cpg3y8h2geukr"]
 
-[ext_resource type="Texture2D" uid="uid://bywu7cmv7hsy2" path="res://assets/enemy/slime_green.png" id="1_4a83h"]
 [ext_resource type="Script" uid="uid://cf53vj1sn6jlv" path="res://scenes/enemy/enemy.gd" id="1_a3pup"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a3pup"]
-atlas = ExtResource("1_4a83h")
-region = Rect2(0, 24, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_40wdo"]
-atlas = ExtResource("1_4a83h")
-region = Rect2(24, 24, 24, 24)
+[ext_resource type="Texture2D" uid="uid://bsufwoox5xfhc" path="res://assets/enemy/inimigo.png" id="2_40wdo"]
+[ext_resource type="Script" uid="uid://cwc386mej7184" path="res://scenes/killzone/killzone.gd" id="3_40wdo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tjssy"]
-atlas = ExtResource("1_4a83h")
-region = Rect2(48, 24, 24, 24)
+atlas = ExtResource("2_40wdo")
+region = Rect2(0, 16, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gl05p"]
-atlas = ExtResource("1_4a83h")
-region = Rect2(72, 24, 24, 24)
+atlas = ExtResource("2_40wdo")
+region = Rect2(32, 16, 32, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cwlon"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a3pup")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_40wdo")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tjssy")
 }, {
@@ -40,13 +27,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbhyu"]
-size = Vector2(14, 14)
+size = Vector2(22, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40wdo"]
-size = Vector2(18, 13)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3pup"]
-size = Vector2(12, 6)
+size = Vector2(26, 12)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1203584704]
 collision_layer = 2
@@ -56,32 +40,29 @@ script = ExtResource("1_a3pup")
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1148674795]
 sprite_frames = SubResource("SpriteFrames_cwlon")
 autoplay = "default"
+frame_progress = 0.22312474
+flip_h = true
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=194606704]
-position = Vector2(0, 5)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_nbhyu")
-
-[node name="Hitbox" type="Area2D" parent="." unique_id=361404253]
-position = Vector2(0, 2)
-
-[node name="HitboxCollision" type="CollisionShape2D" parent="Hitbox" unique_id=1546988825]
-position = Vector2(0, 3.5)
-shape = SubResource("RectangleShape2D_40wdo")
-debug_color = Color(1, 0, 0, 0.41960785)
-
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1878086958]
-position = Vector2(0, -1)
-
-[node name="HurtboxCollision" type="CollisionShape2D" parent="Hurtbox" unique_id=542908778]
-shape = SubResource("RectangleShape2D_a3pup")
-debug_color = Color(1, 1, 0, 0.41960785)
 
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1417918546]
 position = Vector2(0, 5)
-target_position = Vector2(-10, 0)
+target_position = Vector2(-14, 0)
 collision_mask = 6
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=1263325833]
 position = Vector2(0, 5)
-target_position = Vector2(10, 0)
+target_position = Vector2(14, 0)
 collision_mask = 6
+
+[node name="Killzone" type="Area2D" parent="." unique_id=1446166034]
+position = Vector2(0, 2)
+collision_layer = 0
+script = ExtResource("3_40wdo")
+metadata/_custom_type_script = "uid://cwc386mej7184"
+
+[node name="KillzoneCollision" type="CollisionShape2D" parent="Killzone" unique_id=1546988825]
+shape = SubResource("RectangleShape2D_40wdo")
+debug_color = Color(1, 0, 0, 0.41960785)

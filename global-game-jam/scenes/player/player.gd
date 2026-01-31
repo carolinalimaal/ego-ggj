@@ -1,8 +1,6 @@
 class_name Player
 extends CharacterBody2D
 
-signal player_died
-
 #region player variables
 
 # nodes
@@ -48,12 +46,17 @@ var key_mask_2: bool = false
 #region main functions
 
 func _ready() -> void:
-	GlobalRefs.player = self
+	GameManager.register_player(self)
 	
 	state_machine.init(self)
 	
 	self.add_to_group("Player")
 	
+	addMask(camaleon_mask)
+	addMask(bat_mask)
+	
+	if GameManager.current_checkpoint_pos != Vector2.ZERO:
+		global_position = GameManager.current_checkpoint_pos
 
 func _physics_process(delta: float) -> void:
 	# getting inputs
@@ -85,7 +88,6 @@ func getInputStates() -> void:
 	if (key_right): facing = 1
 
 
-
 func handleGravity(delta, gravity: float = gravity_jump) -> void:
 	if !anti_gravity:
 		velocity.y += gravity * delta
@@ -114,8 +116,6 @@ func handleJump() -> void:
 		jumps += 1
 		sprite.play("jump_animation")
 		state_machine.current_state.transition_to("JumpState")
-		
-		
 
 func horizontalMovement() -> void:
 	if GameManager.can_move:
@@ -202,5 +202,24 @@ func setCmalaeonMask(mask: Masks):
 
 func setBatMask(mask: Masks):
 	bat_mask = mask
+func handleAnimation() -> void:
+	sprite.flip_h = (facing < 0)
+	
+	if (is_on_floor()):
+		if (velocity.x != 0):
+			sprite.play("run_animation")
+		else:
+			sprite.play("idle_animation")
+	else:
+		if(velocity.y < 0 and sprite.animation != "jump_animation"):
+			sprite.play("jump_animation")
+		elif (velocity.y >= 0):
+			sprite.animation = "jump_animation"
+			sprite.frame = 3
+
+func respawn(spawn_pos: Vector2) -> void:
+	global_position = spawn_pos
+	velocity = Vector2.ZERO
+	state_machine.current_state.transition_to("IdleState")
 
 #endregion

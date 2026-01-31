@@ -62,8 +62,8 @@ func _on_back_button_pressed() -> void:
 # == LÓGICA DE VÍDEO ==
 #func _on_resolution_option_button_item_selected(index: int) -> void:
 	#var key = resolution_option_button.get_item_text(index)
-	#get_window().set_size(GUI.resolutions[key])
-	#GUI.center_window()
+	#get_window().set_size(GameManager.resolutions[key])
+	#GameManager.center_window()
 
 func _on_resolution_option_button_item_selected(index: int) -> void:
 	var key = resolution_option_button.get_item_text(index)
@@ -73,23 +73,23 @@ func _on_resolution_option_button_item_selected(index: int) -> void:
 		get_window().mode = Window.MODE_WINDOWED
 		fullscreen_checkbox.button_pressed = false
 	# Aplica o novo tamanho
-	get_window().set_size(GUI.resolutions[key])
+	get_window().set_size(GameManager.resolutions[key])
 	# Dá um tempo para o sistema operacional processar antes de centralizar
 	await get_tree().process_frame
-	GUI.center_window()
+	GameManager.center_window()
 
 func _on_fullscreen_checkbox_toggled(toggled_on: bool) -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if toggled_on else DisplayServer.WINDOW_MODE_WINDOWED)
 
 func add_resolution() -> void:
 	resolution_option_button.clear()
-	for r in GUI.resolutions:
+	for r in GameManager.resolutions:
 		resolution_option_button.add_item(r)
 	update_resolution_ui()
 
 func update_resolution_ui() -> void:
 	var window_size_string = str(get_window().size.x, " x ", get_window().size.y)
-	var resolution_index = GUI.resolutions.keys().find(window_size_string)
+	var resolution_index = GameManager.resolutions.keys().find(window_size_string)
 	if resolution_index != -1:
 		resolution_option_button.selected = resolution_index
 
