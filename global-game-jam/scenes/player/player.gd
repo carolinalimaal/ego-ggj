@@ -1,8 +1,6 @@
 class_name Player
 extends CharacterBody2D
 
-signal player_died
-
 #region player variables
 
 # nodes

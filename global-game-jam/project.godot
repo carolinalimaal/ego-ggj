@@ -34,7 +34,7 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 directories/dch_directory={
 "character_camaleao": "res://dialogues/character_camaleao.dch",
-"character_desconhecido": "res://character_desconhecido.dch",
+"character_desconhecido": "res://dialogues/character_desconhecido.dch",
 "character_morcego": "res://dialogues/character_morcego.dch"
 }
 directories/dtl_directory={
