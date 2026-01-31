@@ -8,32 +8,28 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 # physics variables
-var max_health: float = 100
-var health: float = max_health
 @export var speed: float = 125.0
 @export var acceleration: float = 20
 @export var desacceleration: float = 25
 @export var jump_velocity: float = -300.0
+@export var gravity_jump: float = 700
+@export var gravity_fall: float = 1000
 const max_jumps: int = 1
 var jumps: int = 0
 var move_direction: float = 0
 var facing: int = 1
-@export var gravity_jump: float = 700
-@export var gravity_fall: float = 1000
 const jump_multiplier: float = 0.5
 
 # masks variables
 enum Mascaras {NENHUMA, CAMALEON, BAT}
-var camaleon_mask: Masks #= load("res://masks/resources/camaleon_mask.tres")
-var bat_mask: Masks #= load("res://masks/resources/bat_maks.tres")
+var camaleon_mask: Masks = load("res://masks/resources/camaleon_mask.tres")
+var bat_mask: Masks = load("res://masks/resources/bat_maks.tres")
 var current_mask = Mascaras.NENHUMA
 var can_change_plataform_colision: bool = false
 var can_invert_gravity: bool = false
 var anti_gravity: bool = false
 
 # input variables
-var key_up: bool = false
-var key_down: bool = false
 var key_left: bool = false
 var key_right: bool = false
 var key_jump: bool = false
@@ -52,8 +48,6 @@ func _ready() -> void:
 	
 	self.add_to_group("Player")
 	
-	addMask(camaleon_mask)
-	addMask(bat_mask)
 	
 	if GameManager.current_checkpoint_pos != Vector2.ZERO:
 		global_position = GameManager.current_checkpoint_pos
@@ -75,8 +69,6 @@ func _physics_process(delta: float) -> void:
 #region custom functions
 
 func getInputStates() -> void:
-	key_up = Input.is_action_pressed("Up")
-	key_down = Input.is_action_pressed("Down")
 	key_left = Input.is_action_pressed("Left")
 	key_right = Input.is_action_pressed("Right")
 	key_jump = Input.is_action_pressed("Jump")
@@ -147,6 +139,10 @@ func handleAnimation() -> void:
 				sprite.animation = "jump_animation"
 				sprite.frame = 3
 
+#endregion
+
+#region masks functions
+
 func changePlataformColision() -> void:
 	if (!get_collision_mask_value(5) and !get_collision_mask_value(6)):
 		set_collision_mask_value(5, true)
@@ -202,24 +198,10 @@ func setCmalaeonMask(mask: Masks):
 
 func setBatMask(mask: Masks):
 	bat_mask = mask
-func handleAnimation() -> void:
-	sprite.flip_h = (facing < 0)
-	
-	if (is_on_floor()):
-		if (velocity.x != 0):
-			sprite.play("run_animation")
-		else:
-			sprite.play("idle_animation")
-	else:
-		if(velocity.y < 0 and sprite.animation != "jump_animation"):
-			sprite.play("jump_animation")
-		elif (velocity.y >= 0):
-			sprite.animation = "jump_animation"
-			sprite.frame = 3
+
+#endregion
 
 func respawn(spawn_pos: Vector2) -> void:
 	global_position = spawn_pos
 	velocity = Vector2.ZERO
 	state_machine.current_state.transition_to("IdleState")
-
-#endregion
