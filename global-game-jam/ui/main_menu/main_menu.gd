@@ -22,7 +22,7 @@ func _on_settings_button_pressed() -> void:
 	settings_menu._show_tab(settings_menu.settings_hub)
 
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/fases/teste.tscn")
+	get_tree().change_scene_to_file("res://scenes/cutscenes/cutscene_inicial.tscn")
 	pass
 	
 func _on_settings_back() -> void:

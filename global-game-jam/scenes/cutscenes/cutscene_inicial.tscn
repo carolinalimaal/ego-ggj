@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://d3kss8fxrn4jw"]
+
+[ext_resource type="Script" uid="uid://gptwkjypfuk0" path="res://scenes/cutscenes/cutscene.gd" id="1_tmfar"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3slw0"]
+bg_color = Color(0.01773239, 0.017732395, 0.017732374, 1)
+
+[node name="CutsceneInicial" type="Control" unique_id=1373416590 node_paths=PackedStringArray("frame")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tmfar")
+frame = NodePath("Frame")
+next_scene_path = "uid://1k3oxtkkxt5i"
+
+[node name="Panel" type="Panel" parent="." unique_id=689064824]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3slw0")
+
+[node name="Frame" type="TextureRect" parent="." unique_id=1544839602]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
