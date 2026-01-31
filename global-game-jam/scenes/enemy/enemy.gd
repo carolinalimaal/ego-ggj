@@ -15,10 +15,10 @@ func _physics_process(delta: float) -> void:
 			
 		if ray_cast_left.is_colliding():
 			direction = 1
-			sprite.flip_h = false
+			sprite.flip_h = true
 		if ray_cast_right.is_colliding():
 			direction = -1
-			sprite.flip_h = true
+			sprite.flip_h = false
 		
 		velocity.x = direction * SPEED
 	

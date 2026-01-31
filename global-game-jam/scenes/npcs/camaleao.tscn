@@ -1,60 +1,89 @@
 [gd_scene format=3 uid="uid://div3ry4odrjfm"]
 
-[ext_resource type="Texture2D" uid="uid://1x1kj5j1yxwa" path="res://assets/player/player.png" id="1_ivh6b"]
 [ext_resource type="Script" uid="uid://bjtj67wgo23kq" path="res://scenes/npcs/npc.gd" id="1_m5fb5"]
+[ext_resource type="Shape2D" uid="uid://cjrgad6662qb0" path="res://scenes/npcs/camaleao_collision.tres" id="2_5fkba"]
+[ext_resource type="Texture2D" uid="uid://bx6imbt53ma22" path="res://assets/npcs/camaleao.png" id="2_7j1rp"]
+[ext_resource type="Shape2D" uid="uid://cryw1yp8e6spk" path="res://scenes/npcs/second_collision.tres" id="3_ckadj"]
+[ext_resource type="Texture2D" uid="uid://bsufwoox5xfhc" path="res://assets/enemy/inimigo.png" id="3_onid7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m5fb5"]
-atlas = ExtResource("1_ivh6b")
+[sub_resource type="CircleShape2D" id="CircleShape2D_m5fb5"]
+radius = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onid7"]
+atlas = ExtResource("2_7j1rp")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ejjj"]
-atlas = ExtResource("1_ivh6b")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fkba"]
+atlas = ExtResource("2_7j1rp")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p1a37"]
-atlas = ExtResource("1_ivh6b")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckadj"]
+atlas = ExtResource("2_7j1rp")
 region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3uk6"]
+atlas = ExtResource("3_onid7")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2idl"]
+atlas = ExtResource("3_onid7")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctjsd"]
+atlas = ExtResource("3_onid7")
+region = Rect2(64, 0, 32, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uit3j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m5fb5")
+"texture": SubResource("AtlasTexture_onid7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5ejjj")
+"texture": SubResource("AtlasTexture_5fkba")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p1a37")
+"texture": SubResource("AtlasTexture_ckadj")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3uk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2idl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctjsd")
+}],
+"loop": true,
+"name": &"pos_mascara",
+"speed": 5.0
 }]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ivh6b"]
-radius = 8.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_m5fb5"]
-radius = 15.0
 
 [node name="Camaleao" type="CharacterBody2D" unique_id=1707785940]
 collision_layer = 8
-collision_mask = 13
+collision_mask = 12
 script = ExtResource("1_m5fb5")
+npc_name = "Camaleao"
 dialogue_timeline = "timeline_camaleao"
-
-[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1164386982]
-modulate = Color(0, 1, 0, 1)
-sprite_frames = SubResource("SpriteFrames_uit3j")
-autoplay = "default"
-flip_h = true
+original_collision = ExtResource("2_5fkba")
+second_collision = ExtResource("3_ckadj")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1027438039]
-shape = SubResource("CapsuleShape2D_ivh6b")
+shape = ExtResource("3_ckadj")
 
 [node name="InteractArea" type="Area2D" parent="." unique_id=1638169952]
 
 [node name="InteractCollision" type="CollisionShape2D" parent="InteractArea" unique_id=2010269213]
 shape = SubResource("CircleShape2D_m5fb5")
 debug_color = Color(0.8941186, 0.00020715475, 0.77690995, 0.41960785)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1164386982]
+sprite_frames = SubResource("SpriteFrames_uit3j")
+animation = &"pos_mascara"
+autoplay = "default"
+offset = Vector2(0, -1)
