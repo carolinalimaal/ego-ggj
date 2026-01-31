@@ -26,8 +26,6 @@ buses/default_bus_layout="uid://b8451sad5bcxv"
 [autoload]
 
 GameManager="*uid://4pppxxkuigyv"
-GlobalRefs="*res://globals/global_refs.gd"
-GUI="*uid://dfi0i4i1qdny4"
 Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]
@@ -41,10 +39,7 @@ directories/dtl_directory={
 "timeline_camaleao": "res://dialogues/timeline_camaleao.dtl",
 "timeline_morcego": "res://dialogues/timeline_morcego.dtl"
 }
-layout/style_directory={
-"": "res://ui/dialogue_box/dialogue_box.tres",
-"dialogue_box": "res://ui/dialogue_box/dialogue_box.tres"
-}
+layout/style_directory={}
 variables={
 "pegouMascara1": false,
 "pegouMascara2": false

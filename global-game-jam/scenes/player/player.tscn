@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://c37yp34fxxf5w" path="res://scenes/player/states/jump_peak_state_player.gd" id="7_a06cl"]
 [ext_resource type="Script" uid="uid://dpi7ej13hlyrd" path="res://scenes/player/states/fall_state_player.gd" id="8_dl1wr"]
 [ext_resource type="Texture2D" uid="uid://1x1kj5j1yxwa" path="res://assets/player/player.png" id="8_wwtew"]
+[ext_resource type="Script" uid="uid://cwc386mej7184" path="res://scenes/killzone/killzone.gd" id="9_5gtgg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dl1wr"]
 radius = 7.0
@@ -107,6 +108,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h17s1"]
+size = Vector2(10, 4)
+
 [node name="Player" type="CharacterBody2D" unique_id=585727632 groups=["Player"]]
 collision_mask = 14
 script = ExtResource("1_1kbk7")
@@ -143,3 +147,15 @@ script = ExtResource("7_a06cl")
 
 [node name="FallState" type="Node" parent="StateMachine" unique_id=1303873258]
 script = ExtResource("8_dl1wr")
+
+[node name="Killzone" type="Area2D" parent="." unique_id=466676952]
+position = Vector2(0, 12)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_5gtgg")
+metadata/_custom_type_script = "uid://cwc386mej7184"
+
+[node name="KillzoneCollision" type="CollisionShape2D" parent="Killzone" unique_id=971709206]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_h17s1")
+debug_color = Color(1, 0, 0, 0.41960785)
