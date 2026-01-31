@@ -497,7 +497,7 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_5g5yy")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3s2e"]
-size = Vector2(3, 130)
+size = Vector2(466, 130)
 
 [node name="Teste" type="Node2D" unique_id=1719436306]
 
@@ -534,7 +534,5 @@ position = Vector2(-11, -176)
 [node name="AntiGravity" type="Area2D" parent="." unique_id=1870710692]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AntiGravity" unique_id=731413679]
-position = Vector2(662.5, -65)
+position = Vector2(894, -65)
 shape = SubResource("RectangleShape2D_i3s2e")
-
-[connection signal="body_entered" from="AntiGravity" to="Player" method="_on_anti_gravity_body_entered"]

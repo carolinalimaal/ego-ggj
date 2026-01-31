@@ -26,9 +26,9 @@ const jump_multiplier: float = 0.5
 
 # masks variables
 enum Mascaras {NENHUMA, CAMALEON, BAT}
-var camaleon_mask: Masks = load("res://masks/resources/camaleon_mask.tres")
-var bat_mask: Masks = load("res://masks/resources/bat_maks.tres")
-var mask_active = Mascaras.NENHUMA
+var camaleon_mask: Masks #= load("res://masks/resources/camaleon_mask.tres")
+var bat_mask: Masks #= load("res://masks/resources/bat_maks.tres")
+var current_mask = Mascaras.NENHUMA
 var can_change_plataform_colision: bool = false
 var can_invert_gravity: bool = false
 var anti_gravity: bool = false
@@ -40,6 +40,8 @@ var key_left: bool = false
 var key_right: bool = false
 var key_jump: bool = false
 var key_jump_pressed: bool = false
+var key_mask_1: bool = false
+var key_mask_2: bool = false
 
 #endregion
 
@@ -76,6 +78,8 @@ func getInputStates() -> void:
 	key_right = Input.is_action_pressed("Right")
 	key_jump = Input.is_action_pressed("Jump")
 	key_jump_pressed = Input.is_action_just_pressed("Jump")
+	key_mask_1 = Input.is_action_just_pressed("mask_1")
+	key_mask_2 = Input.is_action_just_pressed("mask_2")
 	
 	if (key_left): facing = -1
 	if (key_right): facing = 1
@@ -103,8 +107,10 @@ func handleLanding() -> void:
 
 func handleJump() -> void:
 	if (key_jump_pressed) and (jumps < max_jumps) and GameManager.can_move:
+		
 		if (can_change_plataform_colision):
 			changePlataformColision()
+		
 		jumps += 1
 		sprite.play("jump_animation")
 		state_machine.current_state.transition_to("JumpState")
@@ -155,7 +161,41 @@ func changePlataformColision() -> void:
 		return 
 
 func handleMaskActivation() -> void:
-	pass
+	if camaleon_mask:
+		if(key_mask_1 and current_mask != Mascaras.CAMALEON):
+			if current_mask == Mascaras.BAT:
+				batMaskOff()
+			current_mask = Mascaras.CAMALEON
+			camaleonMaskOn()
+		elif(key_mask_1 and current_mask == Mascaras.CAMALEON):
+			current_mask = Mascaras.NENHUMA
+			camaleonMaskOff()
+
+	if bat_mask:
+		if(key_mask_2 and current_mask != Mascaras.BAT):
+			if current_mask == Mascaras.CAMALEON:
+				camaleonMaskOff()
+			current_mask = Mascaras.BAT
+			batMaksOn()
+		elif(key_mask_2 and current_mask == Mascaras.BAT):
+			current_mask = Mascaras.NENHUMA
+			batMaskOff()
+
+func camaleonMaskOff():
+	can_change_plataform_colision = false
+	set_collision_mask_value(5, false)
+	set_collision_mask_value(6, false)
+
+func camaleonMaskOn():
+	can_change_plataform_colision = true
+
+func batMaskOff():
+	anti_gravity = false
+	sprite.flip_v = false
+
+func batMaksOn():
+	anti_gravity = true
+	sprite.flip_v = true
 
 func setCmalaeonMask(mask: Masks):
 	camaleon_mask = mask
@@ -164,14 +204,3 @@ func setBatMask(mask: Masks):
 	bat_mask = mask
 
 #endregion
-
-
-func _on_anti_gravity_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player") and !anti_gravity:
-		if can_invert_gravity:
-			anti_gravity = true
-			sprite.flip_v = true
-	elif body.is_in_group("Player") and anti_gravity:
-		if can_invert_gravity:
-			anti_gravity = false
-			sprite.flip_v = false
