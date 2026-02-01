@@ -34,6 +34,12 @@ tile_set = ExtResource("5_t6ysp")
 
 [node name="Player" parent="." unique_id=513149867 instance=ExtResource("2_htqbv")]
 position = Vector2(37, -24)
+speed = null
+acceleration = null
+desacceleration = null
+jump_velocity = null
+gravity_jump = null
+gravity_fall = null
 
 [node name="Enemy" parent="." unique_id=1203584704 instance=ExtResource("4_2m3tl")]
 position = Vector2(171, -120)
