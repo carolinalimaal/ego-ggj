@@ -15,7 +15,35 @@
 [ext_resource type="Texture2D" uid="uid://odcfu2w04stt" path="res://assets/backgrounds/parallax_ruinas/camada 3.png" id="11_kr1v8"]
 [ext_resource type="Texture2D" uid="uid://uv3wmhixv5mv" path="res://assets/backgrounds/parallax_ruinas/camada 4.png" id="12_7oveg"]
 [ext_resource type="Script" uid="uid://dlssvob0lon7j" path="res://scenes/camera/camera.gd" id="13_7oveg"]
+[ext_resource type="Script" uid="uid://cwc386mej7184" path="res://scenes/killzone/killzone.gd" id="13_pdbmh"]
 [ext_resource type="Texture2D" uid="uid://bgdcbea0ylhu8" path="res://assets/backgrounds/parallax_ruinas/camada 5.png" id="13_tyj0f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyj0f"]
+size = Vector2(282, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjjdo"]
+size = Vector2(274, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdbmh"]
+size = Vector2(228, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ne31"]
+size = Vector2(446, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4dr1"]
+size = Vector2(296, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmu30"]
+size = Vector2(274, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bt75"]
+size = Vector2(230, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhn6c"]
+size = Vector2(266, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xwrx"]
+size = Vector2(420, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7oveg"]
 size = Vector2(20, 355)
@@ -90,6 +118,78 @@ tile_set = ExtResource("4_wjb6n")
 tile_set = ExtResource("5_ermu8")
 
 [node name="Killzones" type="Node2D" parent="." unique_id=939527889]
+
+[node name="Killzone" type="Area2D" parent="Killzones" unique_id=1629066511]
+position = Vector2(531, 312)
+script = ExtResource("13_pdbmh")
+metadata/_custom_type_script = "uid://cwc386mej7184"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone" unique_id=747567878]
+shape = SubResource("RectangleShape2D_tyj0f")
+
+[node name="Killzone2" type="Area2D" parent="Killzones" unique_id=1683197286]
+position = Vector2(852, 4)
+script = ExtResource("13_pdbmh")
+metadata/_custom_type_script = "uid://cwc386mej7184"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone2" unique_id=1952344655]
+shape = SubResource("RectangleShape2D_pjjdo")
+
+[node name="Killzone3" type="Area2D" parent="Killzones" unique_id=1974973037]
+position = Vector2(915, 354)
+script = ExtResource("13_pdbmh")
+metadata/_custom_type_script = "uid://cwc386mej7184"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone3" unique_id=1289812732]
+shape = SubResource("RectangleShape2D_pdbmh")
+
+[node name="Killzone4" type="Area2D" parent="Killzones" unique_id=288912927]
+position = Vector2(1621, 5)
+script = ExtResource("13_pdbmh")
+metadata/_custom_type_script = "uid://cwc386mej7184"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone4" unique_id=1903945020]
+shape = SubResource("RectangleShape2D_6ne31")
+
+[node name="Killzone5" type="Area2D" parent="Killzones" unique_id=991020219]
+position = Vector2(1598, 354)
+script = ExtResource("13_pdbmh")
+metadata/_custom_type_script = "uid://cwc386mej7184"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone5" unique_id=1605399636]
+shape = SubResource("RectangleShape2D_n4dr1")
+
+[node name="Killzone6" type="Area2D" parent="Killzones" unique_id=1593830650]
+position = Vector2(2064, 353)
+script = ExtResource("13_pdbmh")
+metadata/_custom_type_script = "uid://cwc386mej7184"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone6" unique_id=383813771]
+shape = SubResource("RectangleShape2D_qmu30")
+
+[node name="Killzone7" type="Area2D" parent="Killzones" unique_id=1493024590]
+position = Vector2(2262, 3)
+script = ExtResource("13_pdbmh")
+metadata/_custom_type_script = "uid://cwc386mej7184"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone7" unique_id=764419515]
+shape = SubResource("RectangleShape2D_0bt75")
+
+[node name="Killzone8" type="Area2D" parent="Killzones" unique_id=1089432998]
+position = Vector2(2472, 355)
+script = ExtResource("13_pdbmh")
+metadata/_custom_type_script = "uid://cwc386mej7184"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone8" unique_id=1915101867]
+shape = SubResource("RectangleShape2D_mhn6c")
+
+[node name="Killzone9" type="Area2D" parent="Killzones" unique_id=649966632]
+position = Vector2(2685, 5)
+script = ExtResource("13_pdbmh")
+metadata/_custom_type_script = "uid://cwc386mej7184"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone9" unique_id=282706435]
+shape = SubResource("RectangleShape2D_4xwrx")
 
 [node name="Checkpoints" type="Node2D" parent="." unique_id=485580970]
 
