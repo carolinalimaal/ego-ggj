@@ -84,6 +84,5 @@ debug_color = Color(0.8941186, 0.00020715475, 0.77690995, 0.41960785)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1164386982]
 sprite_frames = SubResource("SpriteFrames_uit3j")
-animation = &"pos_mascara"
 autoplay = "default"
 offset = Vector2(0, -1)
