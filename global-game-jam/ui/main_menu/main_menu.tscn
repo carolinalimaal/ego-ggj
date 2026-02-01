@@ -1,7 +1,36 @@
 [gd_scene format=3 uid="uid://bc8vnrx3ubdl7"]
 
 [ext_resource type="Script" uid="uid://8tf503jyq8b7" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
-[ext_resource type="PackedScene" uid="uid://o5kgpe620mq1" path="res://ui/settings_menu/settings_menu.tscn" id="2_mu8pm"]
+[ext_resource type="Texture2D" uid="uid://rrc0cqerkwv1" path="res://assets/buttons/jogar_normal.png" id="2_u184e"]
+[ext_resource type="Texture2D" uid="uid://c2lmdja1md60a" path="res://assets/buttons/jogar_pressed.png" id="3_6mijq"]
+[ext_resource type="Texture2D" uid="uid://dt0rydh3eht8q" path="res://assets/buttons/jogar_hover.png" id="4_w2r0d"]
+[ext_resource type="Texture2D" uid="uid://w75sklua6wdy" path="res://assets/buttons/sair_normal.png" id="5_4e78x"]
+[ext_resource type="Texture2D" uid="uid://dku4dwh1kcv3f" path="res://assets/buttons/sair_pressed.png" id="6_s4pem"]
+[ext_resource type="Texture2D" uid="uid://cel8aveeq7slf" path="res://assets/buttons/sair_hover.png" id="7_xio0d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tf5ef"]
+texture = ExtResource("2_u184e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qao3l"]
+texture = ExtResource("3_6mijq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lknku"]
+texture = ExtResource("4_w2r0d")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u2jyo"]
+texture = ExtResource("4_w2r0d")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bpbph"]
+texture = ExtResource("5_4e78x")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qewnw"]
+texture = ExtResource("6_s4pem")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_db6af"]
+texture = ExtResource("7_xio0d")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rkggs"]
+texture = ExtResource("7_xio0d")
 
 [node name="MainMenu" type="Control" unique_id=2065288599]
 layout_mode = 3
@@ -13,70 +42,57 @@ grow_vertical = 2
 script = ExtResource("1_uhj5c")
 
 [node name="Menu" type="VBoxContainer" parent="." unique_id=1306853588]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(120, 72)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -50.0
+offset_top = -33.0
+offset_right = 50.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
 
 [node name="Control" type="Control" parent="Menu" unique_id=579012675]
+custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 size_flags_vertical = 7
 
 [node name="Start" type="Button" parent="Menu/Control" unique_id=650359]
+custom_minimum_size = Vector2(120, 32)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -15.5
-offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(50, 15.5)
-text = "Start"
-
-[node name="Control2" type="Control" parent="Menu" unique_id=1899562121]
-layout_mode = 2
-size_flags_vertical = 7
-
-[node name="Settings" type="Button" parent="Menu/Control2" unique_id=324784354]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -15.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(50, 15.5)
-text = "Settings"
+pivot_offset = Vector2(60, 16)
+theme_override_styles/normal = SubResource("StyleBoxTexture_tf5ef")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qao3l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lknku")
+theme_override_styles/focus = SubResource("StyleBoxTexture_u2jyo")
 
 [node name="Control3" type="Control" parent="Menu" unique_id=1364356599]
+custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 size_flags_vertical = 7
 
 [node name="Quit" type="Button" parent="Menu/Control3" unique_id=1881207398]
+custom_minimum_size = Vector2(120, 32)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -15.5
-offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(50, 15.5)
-text = "Quit"
-
-[node name="SettingsMenu" parent="." unique_id=1890138561 instance=ExtResource("2_mu8pm")]
-layout_mode = 1
+pivot_offset = Vector2(60, 16)
+theme_override_styles/normal = SubResource("StyleBoxTexture_bpbph")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qewnw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_db6af")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rkggs")

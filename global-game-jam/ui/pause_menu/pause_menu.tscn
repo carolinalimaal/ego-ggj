@@ -1,7 +1,36 @@
 [gd_scene format=3 uid="uid://couqdco7mtoxw"]
 
 [ext_resource type="Script" uid="uid://f2exb7jpqcyn" path="res://ui/pause_menu/pause_menu.gd" id="1_2n0y6"]
-[ext_resource type="PackedScene" uid="uid://o5kgpe620mq1" path="res://ui/settings_menu/settings_menu.tscn" id="2_jbgdu"]
+[ext_resource type="Texture2D" uid="uid://ykbgwqkyohw6" path="res://assets/buttons/voltar_normal.png" id="2_ihaig"]
+[ext_resource type="Texture2D" uid="uid://bytssiym826aw" path="res://assets/buttons/voltar_pressed.png" id="3_umsyg"]
+[ext_resource type="Texture2D" uid="uid://6ai6icirbqad" path="res://assets/buttons/voltar_hover.png" id="4_3qrb2"]
+[ext_resource type="Texture2D" uid="uid://c8opkfeiej8w2" path="res://assets/buttons/menu_normal.png" id="5_b05md"]
+[ext_resource type="Texture2D" uid="uid://c4euj86jlgfro" path="res://assets/buttons/menu_pressed.png" id="6_f2x4c"]
+[ext_resource type="Texture2D" uid="uid://x5jtypc5qr8y" path="res://assets/buttons/menu_hover.png" id="7_lhp7q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j11rl"]
+texture = ExtResource("2_ihaig")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pu65w"]
+texture = ExtResource("3_umsyg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nkwjh"]
+texture = ExtResource("4_3qrb2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wdlyj"]
+texture = ExtResource("4_3qrb2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tfo3w"]
+texture = ExtResource("5_b05md")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8cp71"]
+texture = ExtResource("6_f2x4c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cc3db"]
+texture = ExtResource("7_lhp7q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o4uxx"]
+texture = ExtResource("7_lhp7q")
 
 [sub_resource type="Animation" id="Animation_mnjdh"]
 length = 0.001
@@ -60,78 +89,60 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Menu" type="VBoxContainer" parent="Panel" unique_id=1964387006]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(120, 72)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
+offset_left = -60.0
+offset_top = -36.0
+offset_right = 60.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
 
 [node name="Control" type="Control" parent="Panel/Menu" unique_id=680106387]
+custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 size_flags_vertical = 7
 
 [node name="Resume" type="Button" parent="Panel/Menu/Control" unique_id=221934516]
-custom_minimum_size = Vector2(100, 31)
+custom_minimum_size = Vector2(120, 32)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -15.5
-offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(50, 15.5)
-text = "Resume"
-
-[node name="Control2" type="Control" parent="Panel/Menu" unique_id=44047042]
-layout_mode = 2
-size_flags_vertical = 7
-
-[node name="Settings" type="Button" parent="Panel/Menu/Control2" unique_id=1551681096]
-custom_minimum_size = Vector2(100, 31)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -15.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(50, 15.5)
-text = "Settings"
+pivot_offset = Vector2(60, 16)
+theme_override_styles/normal = SubResource("StyleBoxTexture_j11rl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pu65w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nkwjh")
+theme_override_styles/focus = SubResource("StyleBoxTexture_wdlyj")
 
 [node name="Control3" type="Control" parent="Panel/Menu" unique_id=408243771]
+custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 size_flags_vertical = 7
 
 [node name="MainMenu" type="Button" parent="Panel/Menu/Control3" unique_id=652540632]
-custom_minimum_size = Vector2(100, 31)
+custom_minimum_size = Vector2(120, 32)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -15.5
-offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(50, 15.5)
-text = "Main Menu"
+pivot_offset = Vector2(60, 16)
+theme_override_styles/normal = SubResource("StyleBoxTexture_tfo3w")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8cp71")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cc3db")
+theme_override_styles/focus = SubResource("StyleBoxTexture_o4uxx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=738053573]
 libraries/ = SubResource("AnimationLibrary_mnjdh")
-
-[node name="SettingsMenu" parent="." unique_id=1890138561 instance=ExtResource("2_jbgdu")]
-process_mode = 3
-visible = false
-layout_mode = 1
