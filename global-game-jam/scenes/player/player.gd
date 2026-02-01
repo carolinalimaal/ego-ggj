@@ -53,9 +53,6 @@ func _ready() -> void:
 	
 	self.add_to_group("Player")
 	
-	setCmalaeonMask(load("res://masks/resources/camaleon_mask.tres"))
-	setBatMask(load("res://masks/resources/bat_maks.tres"))
-	
 	if GameManager.current_checkpoint_pos != Vector2.ZERO:
 		global_position = GameManager.current_checkpoint_pos
 
