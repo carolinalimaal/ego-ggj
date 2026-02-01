@@ -187,7 +187,7 @@ position = Vector2(1075, 241)
 position = Vector2(721, 254)
 
 [node name="Checkpoint4" parent="Checkpoints" unique_id=1858517449 instance=ExtResource("10_72buq")]
-position = Vector2(1392, 68)
+position = Vector2(1417, 47)
 
 [node name="Checkpoint5" parent="Checkpoints" unique_id=1530331542 instance=ExtResource("10_72buq")]
 position = Vector2(1608, 234)
@@ -219,7 +219,7 @@ shape = SubResource("RectangleShape2D_vputg")
 
 [node name="LevelExit" parent="." unique_id=234127871 instance=ExtResource("11_6ttqv")]
 position = Vector2(3044, 267)
-next_scene_path = "uid://bc8vnrx3ubdl7"
+next_scene_path = "uid://ciwiinve0or06"
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=727870919]
 zoom = Vector2(1.2, 1.2)
