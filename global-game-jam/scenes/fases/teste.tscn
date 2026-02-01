@@ -270,4 +270,4 @@ position = Vector2(171, -120)
 position = Vector2(234, -19)
 
 [node name="Morcego" parent="." unique_id=294582967 instance=ExtResource("6_i3s2e")]
-position = Vector2(-11, -176)
+position = Vector2(-140, -68)

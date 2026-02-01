@@ -1,3 +1,4 @@
+[style name="dialogue_box"]
 if {pegouMascaraCamaleao} == false:
 	character_desconhecido: Aahhh!
 	character_desconhecido: Como você me achou? ...Quer dizer, eu estou piscando.

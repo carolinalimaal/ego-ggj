@@ -109,7 +109,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h17s1"]
-size = Vector2(10, 4)
+size = Vector2(14, 4)
 
 [node name="Player" type="CharacterBody2D" unique_id=585727632 groups=["Player"]]
 collision_mask = 14
@@ -156,6 +156,6 @@ script = ExtResource("9_5gtgg")
 metadata/_custom_type_script = "uid://cwc386mej7184"
 
 [node name="KillzoneCollision" type="CollisionShape2D" parent="Killzone" unique_id=971709206]
-position = Vector2(-2, 2)
+position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_h17s1")
 debug_color = Color(1, 0, 0, 0.41960785)

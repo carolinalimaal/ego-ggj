@@ -1,5 +1,11 @@
+[style name="dialogue_box"]
 if {pegouMascaraMorcego} == false:
-	teste
+	character_desconhecido: Ei você! Quem você pensa que é, vagando por ai como se todo o caos que nos cerca não existisse, e ainda por cima estragando meu disfarce!
+	character_desconhecido: Nim? Não me importo com quem você seja ou se chame, mas é interessante sua vontade de acabar com o que quer que esteja acontecendo.
+	character_morcego: Então você encontrou outro como eu, nesse estado... Um camaleão que ao entregar sua máscara lhe concedeu sua habilidade.
+	character_morcego: Bom, até tenho uma certa vontade de ir atrás de quem fez isso e cobrá-lo, porém certamente não tenho a coragem. Já que conseguiu ter a fé do camaleão sob você, também depositarei a minha.
+	Nim recebeu a máscara do Morcego.  Para usá-la, aperte "2".
+	character_morcego: Aliás, sou um morcego, apesar de não ter asas e não poder voar, acredito que você conseguirá andar de ponta cabeça. Boa sorte, estranho Nim.
 	set {pegouMascaraMorcego} = true
 else:
 	character_morcego: ... ...
