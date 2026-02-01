@@ -9,7 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://csctodox8olax" path="res://scenes/player/player.tscn" id="7_earqj"]
 [ext_resource type="PackedScene" uid="uid://dhb3jiuwyqwcj" path="res://scenes/level_exit/level_exit.tscn" id="8_earqj"]
 [ext_resource type="PackedScene" uid="uid://bat15r4538kyp" path="res://scenes/totem/totem.tscn" id="9_ee06d"]
+[ext_resource type="Texture2D" uid="uid://bsvciurk84r2k" path="res://assets/backgrounds/parallax_ruinas/camada 1.png" id="9_n14q3"]
+[ext_resource type="Texture2D" uid="uid://1ovw6t2hq2je" path="res://assets/backgrounds/parallax_ruinas/camada 2.png" id="10_1ft6p"]
 [ext_resource type="PackedScene" uid="uid://cpg3y8h2geukr" path="res://scenes/enemy/enemy.tscn" id="10_o2kx7"]
+[ext_resource type="Texture2D" uid="uid://odcfu2w04stt" path="res://assets/backgrounds/parallax_ruinas/camada 3.png" id="11_kr1v8"]
+[ext_resource type="Texture2D" uid="uid://uv3wmhixv5mv" path="res://assets/backgrounds/parallax_ruinas/camada 4.png" id="12_7oveg"]
+[ext_resource type="Script" uid="uid://dlssvob0lon7j" path="res://scenes/camera/camera.gd" id="13_7oveg"]
+[ext_resource type="Texture2D" uid="uid://bgdcbea0ylhu8" path="res://assets/backgrounds/parallax_ruinas/camada 5.png" id="13_tyj0f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7oveg"]
+size = Vector2(20, 355)
 
 [node name="Ruinas" type="Node2D" unique_id=1419935318]
 
@@ -18,6 +27,54 @@
 [node name="PauseMenu" parent="CanvasLayer" unique_id=466377671 instance=ExtResource("1_hj2y6")]
 
 [node name="MasksUi" parent="CanvasLayer" unique_id=53492793 instance=ExtResource("2_wjb6n")]
+
+[node name="Parallax" type="Node2D" parent="." unique_id=1127110987]
+position = Vector2(1600, 180)
+
+[node name="Parallax2D" type="Parallax2D" parent="Parallax" unique_id=1631192129]
+scroll_scale = Vector2(0.2, 0)
+repeat_size = Vector2(640, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Parallax2D" unique_id=1004169899]
+scale = Vector2(2, 2)
+texture = ExtResource("9_n14q3")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Parallax" unique_id=1119509675]
+scroll_scale = Vector2(0.3, 0)
+repeat_size = Vector2(640, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Parallax2D2" unique_id=767826092]
+scale = Vector2(2, 2)
+texture = ExtResource("10_1ft6p")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Parallax" unique_id=12314482]
+scroll_scale = Vector2(0.4, 0)
+repeat_size = Vector2(640, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Parallax2D3" unique_id=671268958]
+scale = Vector2(2, 2)
+texture = ExtResource("11_kr1v8")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Parallax" unique_id=2083948810]
+scroll_scale = Vector2(0.5, 0)
+repeat_size = Vector2(640, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Parallax2D4" unique_id=1825277858]
+scale = Vector2(2, 2)
+texture = ExtResource("12_7oveg")
+
+[node name="Parallax2D5" type="Parallax2D" parent="Parallax" unique_id=223057307]
+scroll_scale = Vector2(0.5, 0)
+repeat_size = Vector2(640, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Parallax2D5" unique_id=255523365]
+scale = Vector2(2, 2)
+texture = ExtResource("13_tyj0f")
 
 [node name="TileLayers" type="Node2D" parent="." unique_id=254744371]
 
@@ -32,28 +89,40 @@ tile_set = ExtResource("4_wjb6n")
 [node name="PurpleFloor" type="TileMapLayer" parent="TileLayers" unique_id=1574402045]
 tile_set = ExtResource("5_ermu8")
 
-[node name="Morcego" parent="." unique_id=1707785940 instance=ExtResource("6_xl24d")]
-position = Vector2(106, 95)
+[node name="Killzones" type="Node2D" parent="." unique_id=939527889]
+
+[node name="Checkpoints" type="Node2D" parent="." unique_id=485580970]
+
+[node name="Limtes" type="Node2D" parent="." unique_id=1285179571]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Limtes" unique_id=1625517013]
+position = Vector2(-3, 174)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limtes/StaticBody2D" unique_id=864988704]
+shape = SubResource("RectangleShape2D_7oveg")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Limtes" unique_id=153521313]
+position = Vector2(3091, 172)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limtes/StaticBody2D2" unique_id=924575134]
+shape = SubResource("RectangleShape2D_7oveg")
+
+[node name="LevelExit" parent="." unique_id=234127871 instance=ExtResource("8_earqj")]
+position = Vector2(3044, 267)
+next_scene_path = "uid://ciwiinve0or06"
+
+[node name="PlayerCamera" type="Camera2D" parent="." unique_id=37299938]
+zoom = Vector2(1.2, 1.2)
+script = ExtResource("13_7oveg")
+metadata/_custom_type_script = "uid://dlssvob0lon7j"
 
 [node name="Player" parent="." unique_id=585727632 instance=ExtResource("7_earqj")]
 position = Vector2(31, 221)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=798633781]
-
-[node name="LevelExit" parent="." unique_id=234127871 instance=ExtResource("8_earqj")]
-position = Vector2(2820, 202)
-
-[node name="KillZone" type="Area2D" parent="." unique_id=1173331435]
-position = Vector2(2820, 202)
-
-[node name="Totems" type="Node2D" parent="." unique_id=831468037]
-
-[node name="Totem" parent="Totems" unique_id=635920166 instance=ExtResource("9_ee06d")]
-position = Vector2(1000, 34)
-
-[node name="Totem2" parent="Totems" unique_id=1892008506 instance=ExtResource("9_ee06d")]
-position = Vector2(2106, 110)
-rotation = 3.1415927
+[node name="Morcego" parent="." unique_id=1707785940 instance=ExtResource("6_xl24d")]
+position = Vector2(106, 95)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1850962627]
 
@@ -65,3 +134,12 @@ position = Vector2(1082, 68)
 
 [node name="Enemy3" parent="Enemies" unique_id=964083554 instance=ExtResource("10_o2kx7")]
 position = Vector2(702, 214)
+
+[node name="Totems" type="Node2D" parent="." unique_id=831468037]
+
+[node name="Totem" parent="Totems" unique_id=635920166 instance=ExtResource("9_ee06d")]
+position = Vector2(1000, 34)
+
+[node name="Totem2" parent="Totems" unique_id=1892008506 instance=ExtResource("9_ee06d")]
+position = Vector2(2106, 110)
+rotation = 3.1415927
