@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://uv3wmhixv5mv" path="res://assets/backgrounds/parallax_ruinas/camada 4.png" id="12_7oveg"]
 [ext_resource type="Script" uid="uid://dlssvob0lon7j" path="res://scenes/camera/camera.gd" id="13_7oveg"]
 [ext_resource type="Script" uid="uid://cwc386mej7184" path="res://scenes/killzone/killzone.gd" id="13_pdbmh"]
+[ext_resource type="PackedScene" uid="uid://b8by0rpy6w023" path="res://scenes/checkpoint/checkpoint.tscn" id="13_pjjdo"]
 [ext_resource type="Texture2D" uid="uid://bgdcbea0ylhu8" path="res://assets/backgrounds/parallax_ruinas/camada 5.png" id="13_tyj0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyj0f"]
@@ -193,6 +194,33 @@ shape = SubResource("RectangleShape2D_4xwrx")
 
 [node name="Checkpoints" type="Node2D" parent="." unique_id=485580970]
 
+[node name="Checkpoint" parent="Checkpoints" unique_id=387627839 instance=ExtResource("13_pjjdo")]
+position = Vector2(58, 220)
+
+[node name="Checkpoint2" parent="Checkpoints" unique_id=582895426 instance=ExtResource("13_pjjdo")]
+position = Vector2(401, 160)
+
+[node name="Checkpoint3" parent="Checkpoints" unique_id=91880354 instance=ExtResource("13_pjjdo")]
+position = Vector2(803, 193)
+
+[node name="Checkpoint4" parent="Checkpoints" unique_id=476407455 instance=ExtResource("13_pjjdo")]
+position = Vector2(1385, 187)
+
+[node name="Checkpoint5" parent="Checkpoints" unique_id=1345669618 instance=ExtResource("13_pjjdo")]
+position = Vector2(1026, 36)
+
+[node name="Checkpoint6" parent="Checkpoints" unique_id=1483685300 instance=ExtResource("13_pjjdo")]
+position = Vector2(1789, 223)
+
+[node name="Checkpoint7" parent="Checkpoints" unique_id=404319635 instance=ExtResource("13_pjjdo")]
+position = Vector2(2078, 107)
+
+[node name="Checkpoint8" parent="Checkpoints" unique_id=246377988 instance=ExtResource("13_pjjdo")]
+position = Vector2(2417, 142)
+
+[node name="Checkpoint9" parent="Checkpoints" unique_id=1277501341 instance=ExtResource("13_pjjdo")]
+position = Vector2(2677, 229)
+
 [node name="Limtes" type="Node2D" parent="." unique_id=1285179571]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Limtes" unique_id=1625517013]
@@ -203,14 +231,14 @@ collision_layer = 4
 shape = SubResource("RectangleShape2D_7oveg")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Limtes" unique_id=153521313]
-position = Vector2(3091, 172)
+position = Vector2(2820, 180)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limtes/StaticBody2D2" unique_id=924575134]
 shape = SubResource("RectangleShape2D_7oveg")
 
 [node name="LevelExit" parent="." unique_id=234127871 instance=ExtResource("8_earqj")]
-position = Vector2(3044, 267)
+position = Vector2(2760, 202)
 next_scene_path = "uid://ciwiinve0or06"
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=37299938]
