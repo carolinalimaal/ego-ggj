@@ -2,26 +2,27 @@
 
 [ext_resource type="Script" uid="uid://bjtj67wgo23kq" path="res://scenes/npcs/npc.gd" id="1_uub0j"]
 [ext_resource type="Shape2D" uid="uid://cjrgad6662qb0" path="res://scenes/npcs/camaleao_collision.tres" id="2_5xiqq"]
-[ext_resource type="Texture2D" uid="uid://1x1kj5j1yxwa" path="res://assets/player/player.png" id="2_8pq5g"]
 [ext_resource type="Texture2D" uid="uid://bsufwoox5xfhc" path="res://assets/enemy/inimigo.png" id="3_8pq5g"]
 [ext_resource type="Shape2D" uid="uid://cryw1yp8e6spk" path="res://scenes/npcs/second_collision.tres" id="3_ogy6h"]
+[ext_resource type="Texture2D" uid="uid://crcepmxkerkkg" path="res://assets/npcs/morcego.png" id="4_5xiqq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ivh6b"]
 radius = 8.0
+height = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m5fb5"]
-radius = 15.0
+radius = 22.090721
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m5fb5"]
-atlas = ExtResource("2_8pq5g")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa4i8"]
+atlas = ExtResource("4_5xiqq")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ejjj"]
-atlas = ExtResource("2_8pq5g")
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6qq2"]
+atlas = ExtResource("4_5xiqq")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p1a37"]
-atlas = ExtResource("2_8pq5g")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mootd"]
+atlas = ExtResource("4_5xiqq")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iajxv"]
@@ -40,13 +41,13 @@ region = Rect2(64, 0, 32, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m5fb5")
+"texture": SubResource("AtlasTexture_xa4i8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5ejjj")
+"texture": SubResource("AtlasTexture_j6qq2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p1a37")
+"texture": SubResource("AtlasTexture_mootd")
 }],
 "loop": true,
 "name": &"default",
@@ -69,7 +70,7 @@ animations = [{
 
 [node name="Morcego" type="CharacterBody2D" unique_id=1707785940]
 collision_layer = 8
-collision_mask = 13
+collision_mask = 12
 script = ExtResource("1_uub0j")
 npc_name = "Morcego"
 dialogue_timeline = "timeline_morcego"
