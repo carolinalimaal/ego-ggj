@@ -218,5 +218,6 @@ func setBatMask(mask: Masks):
 
 func respawn(spawn_pos: Vector2) -> void:
 	global_position = spawn_pos
+	jumps = 0
 	velocity = Vector2.ZERO
 	state_machine.current_state.transition_to("IdleState")

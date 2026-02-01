@@ -152,6 +152,8 @@ shape = SubResource("RectangleShape2D_qmu30")
 position = Vector2(1599, 348)
 script = ExtResource("13_pdbmh")
 metadata/_custom_type_script = "uid://cwc386mej7184"
+[node name="Player" parent="." unique_id=585727632 instance=ExtResource("7_earqj")]
+position = Vector2(31, 221)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone4" unique_id=2119595227]
 shape = SubResource("RectangleShape2D_0bt75")
@@ -254,3 +256,25 @@ position = Vector2(106, 96)
 
 [node name="Player" parent="." unique_id=585727632 instance=ExtResource("7_earqj")]
 position = Vector2(24, 214)
+[node name="KillZone" type="Area2D" parent="." unique_id=1173331435]
+position = Vector2(2820, 202)
+
+[node name="Totems" type="Node2D" parent="." unique_id=831468037]
+
+[node name="Totem" parent="Totems" unique_id=635920166 instance=ExtResource("9_ee06d")]
+position = Vector2(1000, 34)
+
+[node name="Totem2" parent="Totems" unique_id=1892008506 instance=ExtResource("9_ee06d")]
+position = Vector2(2106, 110)
+rotation = 3.1415927
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1850962627]
+
+[node name="Enemy" parent="Enemies" unique_id=1203584704 instance=ExtResource("10_o2kx7")]
+position = Vector2(1258, 229)
+
+[node name="Enemy2" parent="Enemies" unique_id=1122608889 instance=ExtResource("10_o2kx7")]
+position = Vector2(1082, 68)
+
+[node name="Enemy3" parent="Enemies" unique_id=964083554 instance=ExtResource("10_o2kx7")]
+position = Vector2(702, 214)

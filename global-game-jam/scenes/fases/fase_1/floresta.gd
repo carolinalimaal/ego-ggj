@@ -7,6 +7,9 @@ extends Node2D
 @onready var purple_floor: TileMapLayer = $TileLayers/PurpleFloor
 @onready var camera: PlayerCamera = $PlayerCamera
 @onready var checkpoints: Array = $Checkpoints.get_children()
+@onready var exit_level: LevelExit = $LevelExit
+@onready var totem_one: Totem = $Totems/Totem
+@onready var totem_two: Totem = $Totems/Totem2
 
 var button_1_pressed: bool = false
 var button_2_pressed: bool = false
@@ -44,3 +47,9 @@ func _process(_delta: float) -> void:
 	elif !GameManager.player_ref.yellow_collision and Dialogic.VAR.get_variable("pegouMascaraCamaleao"):
 		yellow_floor.modulate.a = 0.8
 		purple_floor.modulate.a = 1.0
+		
+	handleTotemActivation()
+
+func handleTotemActivation():
+	if totem_one.active and totem_two.active and !exit_level.can_exit_level:
+		exit_level.can_exit_level = true
