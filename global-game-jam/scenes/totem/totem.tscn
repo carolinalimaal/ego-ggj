@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bat15r4538kyp"]
+
+[ext_resource type="Texture2D" uid="uid://cod0ro2asviuv" path="res://assets/totem/totem.png" id="1_hj4sn"]
+[ext_resource type="Script" uid="uid://b5qrqceb5uq7j" path="res://scenes/totem/totem.gd" id="1_tfdk8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tfdk8"]
+radius = 6.0
+height = 26.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rigpd"]
+size = Vector2(30, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8ikp"]
+atlas = ExtResource("1_hj4sn")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n1q8"]
+atlas = ExtResource("1_hj4sn")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0dx1l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8ikp")
+}],
+"loop": true,
+"name": &"activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n1q8")
+}],
+"loop": true,
+"name": &"deactivated",
+"speed": 5.0
+}]
+
+[node name="Totem" type="StaticBody2D" unique_id=635920166]
+collision_layer = 64
+script = ExtResource("1_tfdk8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1042885762]
+shape = SubResource("CapsuleShape2D_tfdk8")
+
+[node name="PlayerColision" type="Area2D" parent="." unique_id=1329247985]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerColision" unique_id=811464815]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_rigpd")
+debug_color = Color(0.9563138, 0.19541636, 0.20988896, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=576988060]
+sprite_frames = SubResource("SpriteFrames_0dx1l")
+animation = &"deactivated"
+
+[connection signal="body_entered" from="PlayerColision" to="." method="_on_player_colision_body_entered"]
+[connection signal="body_exited" from="PlayerColision" to="." method="_on_player_colision_body_exited"]
