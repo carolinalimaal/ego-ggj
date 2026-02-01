@@ -3,6 +3,10 @@ extends CharacterBody2D
 
 #region player variables
 
+signal create_mask_1_ui()
+signal create_mask_2_ui()
+signal update_color_ui(mask)
+
 # nodes
 @onready var state_machine: StateMachine = $StateMachine
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -22,8 +26,8 @@ const jump_multiplier: float = 0.5
 
 # masks variables
 enum Mascaras {NENHUMA, CAMALEON, BAT}
-var camaleon_mask: Masks = load("res://masks/resources/camaleon_mask.tres")
-var bat_mask: Masks = load("res://masks/resources/bat_maks.tres")
+var camaleon_mask: Masks
+var bat_mask: Masks 
 var current_mask = Mascaras.NENHUMA
 var can_change_plataform_colision: bool = false
 var can_invert_gravity: bool = false
@@ -43,11 +47,14 @@ var key_mask_2: bool = false
 
 func _ready() -> void:
 	GameManager.register_player(self)
+	GameManager.emit_signal("player_ready", self)
 	
 	state_machine.init(self)
 	
 	self.add_to_group("Player")
 	
+	setCmalaeonMask(load("res://masks/resources/camaleon_mask.tres"))
+	setBatMask(load("res://masks/resources/bat_maks.tres"))
 	
 	if GameManager.current_checkpoint_pos != Vector2.ZERO:
 		global_position = GameManager.current_checkpoint_pos
@@ -163,9 +170,11 @@ func handleMaskActivation() -> void:
 				batMaskOff()
 			current_mask = Mascaras.CAMALEON
 			camaleonMaskOn()
+			update_color_ui.emit()
 		elif(key_mask_1 and current_mask == Mascaras.CAMALEON):
 			current_mask = Mascaras.NENHUMA
 			camaleonMaskOff()
+			update_color_ui.emit()
 
 	if bat_mask:
 		if(key_mask_2 and current_mask != Mascaras.BAT):
@@ -173,9 +182,11 @@ func handleMaskActivation() -> void:
 				camaleonMaskOff()
 			current_mask = Mascaras.BAT
 			batMaksOn()
+			update_color_ui.emit()
 		elif(key_mask_2 and current_mask == Mascaras.BAT):
 			current_mask = Mascaras.NENHUMA
 			batMaskOff()
+			update_color_ui.emit()
 
 func camaleonMaskOff():
 	can_change_plataform_colision = false
@@ -195,9 +206,11 @@ func batMaksOn():
 
 func setCmalaeonMask(mask: Masks):
 	camaleon_mask = mask
+	create_mask_1_ui.emit()
 
 func setBatMask(mask: Masks):
 	bat_mask = mask
+	create_mask_2_ui.emit()
 
 #endregion
 
