@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://b5dvjemlimjrk"]
+
+[ext_resource type="Texture2D" uid="uid://drn6kimo6i1yw" path="res://ui/icon.svg" id="1_svuay"]
+[ext_resource type="Script" uid="uid://cjuhbme8u5jl6" path="res://ui/masks_ui/masks_ui.gd" id="1_wegv2"]
+
+[node name="MasksUi" type="Control" unique_id=53492793]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wegv2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=493413913]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.81100005
+anchor_right = 0.19500001
+anchor_bottom = 1.0
+offset_top = 0.039978027
+offset_right = 0.19999695
+grow_vertical = 0
+
+[node name="ColorPanel1" type="ColorRect" parent="HBoxContainer" unique_id=627317177]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+color = Color(0.5834499, 0.5834499, 0.5834499, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ColorPanel1" unique_id=503380592]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/ColorPanel1/VBoxContainer" unique_id=2143236645]
+layout_mode = 2
+texture = ExtResource("1_svuay")
+expand_mode = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/ColorPanel1/VBoxContainer" unique_id=1383636701]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Mask_1"
+horizontal_alignment = 1
+
+[node name="ColorPanel2" type="ColorRect" parent="HBoxContainer" unique_id=469764863]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+color = Color(0.58431375, 0.58431375, 0.58431375, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/ColorPanel2" unique_id=1151497070]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.98
+anchor_bottom = 1.0
+offset_left = -1.0
+grow_vertical = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/ColorPanel2/VBoxContainer2" unique_id=2125574060]
+layout_mode = 2
+texture = ExtResource("1_svuay")
+expand_mode = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/ColorPanel2/VBoxContainer2" unique_id=346193586]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Mask_2"
+horizontal_alignment = 1

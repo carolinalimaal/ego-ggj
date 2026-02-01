@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cqp82uv7tkbnl"]
 
 [ext_resource type="Texture2D" uid="uid://cbk1m1unc75kb" path="res://assets/tilesets/Floor Tiles1.png" id="1_fdeut"]
+[ext_resource type="PackedScene" uid="uid://b5dvjemlimjrk" path="res://ui/masks_ui/masks_ui.tscn" id="2_5g5yy"]
 [ext_resource type="PackedScene" uid="uid://csctodox8olax" path="res://scenes/player/player.tscn" id="2_htqbv"]
 [ext_resource type="PackedScene" uid="uid://couqdco7mtoxw" path="res://ui/pause_menu/pause_menu.tscn" id="3_kjnnb"]
 [ext_resource type="PackedScene" uid="uid://cpg3y8h2geukr" path="res://scenes/enemy/enemy.tscn" id="4_2m3tl"]
@@ -496,14 +497,13 @@ physics_layer_0/collision_layer = 32
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_5g5yy")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3s2e"]
-size = Vector2(466, 130)
-
 [node name="Teste" type="Node2D" unique_id=1719436306]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1211463451]
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=466377671 instance=ExtResource("3_kjnnb")]
+
+[node name="MasksUi" parent="CanvasLayer" unique_id=53492793 instance=ExtResource("2_5g5yy")]
 
 [node name="TileLayers" type="Node2D" parent="." unique_id=930657511]
 
@@ -530,9 +530,3 @@ position = Vector2(234, -19)
 
 [node name="Morcego" parent="." unique_id=294582967 instance=ExtResource("6_i3s2e")]
 position = Vector2(-11, -176)
-
-[node name="AntiGravity" type="Area2D" parent="." unique_id=1870710692]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AntiGravity" unique_id=731413679]
-position = Vector2(894, -65)
-shape = SubResource("RectangleShape2D_i3s2e")

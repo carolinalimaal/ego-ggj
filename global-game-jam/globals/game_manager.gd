@@ -4,6 +4,7 @@ extends Node
 signal player_died
 
 # == VARIAVEIS GLOBAIS
+signal player_ready(player)
 var player_ref: Player
 
 var can_move: bool = true
