@@ -32,6 +32,7 @@ var current_mask = Mascaras.NENHUMA
 var can_change_plataform_colision: bool = false
 var can_invert_gravity: bool = false
 var anti_gravity: bool = false
+var yellow_collision: bool = false
 
 # input variables
 var key_left: bool = false
@@ -149,13 +150,16 @@ func handleAnimation() -> void:
 
 func changePlataformColision() -> void:
 	if (!get_collision_mask_value(5) and !get_collision_mask_value(6)):
+		yellow_collision = true
 		set_collision_mask_value(5, true)
 		return
 	if (get_collision_mask_value(5)):
+		yellow_collision = false
 		set_collision_mask_value(6, true)
 		set_collision_mask_value(5, false)
 		return
 	if (get_collision_mask_value(6)):
+		yellow_collision = true
 		set_collision_mask_value(6, false)
 		set_collision_mask_value(5, true)
 		return 
@@ -187,6 +191,7 @@ func handleMaskActivation() -> void:
 
 func camaleonMaskOff():
 	can_change_plataform_colision = false
+	yellow_collision = false
 	set_collision_mask_value(5, false)
 	set_collision_mask_value(6, false)
 

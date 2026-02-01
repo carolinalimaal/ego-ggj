@@ -1,15 +1,20 @@
-class_name PlayerCamera extends Camera2D
+class_name PlayerCamera
+extends Camera2D
 
-var target_position : Vector2 = Vector2.ZERO
+# Referência ao player
+var player: Node2D
+
+@export var smooth_speed: float = 5.0
+@export var fixed_y_position: float = 180.0 
 
 func _ready() -> void:
 	make_current()
+	
+	global_position.y = fixed_y_position
 
-func _process(delta: float) -> void:
-	get_target()
-	global_position = global_position.lerp(target_position, 1 - exp(-delta * 5))
-
-func get_target():
-	var player : Player = get_tree().get_first_node_in_group("Player")
-	if player:
-		target_position = player.global_position
+func _physics_process(delta: float) -> void:
+	if not is_instance_valid(player):
+		player = get_tree().get_first_node_in_group("Player")
+		return
+	var target_position = Vector2(player.global_position.x, fixed_y_position)
+	global_position = global_position.lerp(target_position, 1.0 - exp(-delta * smooth_speed))
