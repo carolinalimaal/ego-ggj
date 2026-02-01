@@ -19,7 +19,7 @@ func _ready() -> void:
 	
 	Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
 	
-	if !Dialogic.VAR.get_variable("pegouMascaraCamaleao"):
+	if !Dialogic.VAR.get_variable("pegouMascaraCamaleao") or !Dialogic.VAR.get_variable("pegouMascaraMorcego"):
 		collision.shape = original_collision
 		sprite.play("default")
 	else:
@@ -28,9 +28,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if !is_on_floor():
+	if !is_on_floor() and npc_name == "Camaleao":
 		velocity += get_gravity() * delta
-		
+	if npc_name == "Morcego" and Dialogic.VAR.get_variable("pegouMascaraMorcego"):
+		if !is_on_floor():
+			velocity += get_gravity() * delta
 	move_and_slide()
 
 func _unhandled_input(_event: InputEvent) -> void:
