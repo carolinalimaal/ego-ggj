@@ -1,3 +1,4 @@
+class_name Totem
 extends StaticBody2D
 
 var active: bool = false
