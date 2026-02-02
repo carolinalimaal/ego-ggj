@@ -8,7 +8,7 @@
 [ext_resource type="TileSet" uid="uid://3d0fix0qd48" path="res://scenes/fases/fase_1/tile_plat_amarela.tres" id="4_wjb6n"]
 [ext_resource type="TileSet" uid="uid://bf34yufcaxvgl" path="res://scenes/fases/fase_1/tile_plat_roxa.tres" id="5_ermu8"]
 [ext_resource type="PackedScene" uid="uid://yo2q0aldgmhu" path="res://scenes/npcs/morcego.tscn" id="6_xl24d"]
-[ext_resource type="PackedScene" uid="uid://csctodox8olax" path="res://scenes/Player/player.tscn" id="7_earqj"]
+[ext_resource type="PackedScene" uid="uid://csctodox8olax" path="res://scenes/player/player.tscn" id="7_earqj"]
 [ext_resource type="PackedScene" uid="uid://dhb3jiuwyqwcj" path="res://scenes/level_exit/level_exit.tscn" id="8_earqj"]
 [ext_resource type="PackedScene" uid="uid://bat15r4538kyp" path="res://scenes/totem/totem.tscn" id="9_ee06d"]
 [ext_resource type="Texture2D" uid="uid://bsvciurk84r2k" path="res://assets/backgrounds/parallax_ruinas/camada 1.png" id="9_n14q3"]

@@ -74,25 +74,101 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_o0gcr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=481553846]
+custom_minimum_size = Vector2(410, 300)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -205.0
+offset_top = -150.0
+offset_right = 205.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=2131383710]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "CRÉDITOS"
+horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer" unique_id=1448346943]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1760849232]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer/VBoxContainer" unique_id=867249057]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer" unique_id=576722412]
 layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=810374033]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "DESIGNERS"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1109396023]
+custom_minimum_size = Vector2(232, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Carolina Alves, Felipe Carvalho, Luís Filipe Brasil, Marcelo de Loreto e Thaís Martins"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer" unique_id=1193883935]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1917230650]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "PROGRAMADORES"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=114093922]
+custom_minimum_size = Vector2(232, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Carolina Alves e Marcelo de Loreto"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=2038652383]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2" unique_id=1589679295]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1436317893]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "ARTE VISUAL"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=2041144227]
+custom_minimum_size = Vector2(232, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Thaís Martins"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2" unique_id=385199274]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1908591611]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "MÚSICA E TRILHA SONORA"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=2077856510]
+custom_minimum_size = Vector2(232, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Felipe Alves Carvalho e Luís Filipe Brasil"
+horizontal_alignment = 1
+autowrap_mode = 2
