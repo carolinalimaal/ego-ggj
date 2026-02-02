@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://d3kss8fxrn4jw"]
 
 [ext_resource type="Script" uid="uid://gptwkjypfuk0" path="res://scenes/cutscenes/cutscene.gd" id="1_tmfar"]
+[ext_resource type="Texture2D" uid="uid://b2mjjs1v66ajp" path="res://assets/cutscenes/inicial/cutscenes1.png" id="2_urxoh"]
+[ext_resource type="Texture2D" uid="uid://dj740jeuuc30p" path="res://assets/cutscenes/inicial/cutscenes2.png" id="3_837l3"]
+[ext_resource type="Texture2D" uid="uid://cp0lfulj70oqv" path="res://assets/cutscenes/inicial/cutscenes3.png" id="4_gqxla"]
+[ext_resource type="Texture2D" uid="uid://b2nvctjheh0h8" path="res://assets/cutscenes/inicial/cutscenes4.png" id="5_iyjbe"]
+[ext_resource type="Texture2D" uid="uid://bmb1uqwifwb3a" path="res://assets/cutscenes/inicial/cutscenes5.png" id="6_x5rlm"]
+[ext_resource type="Texture2D" uid="uid://da7lt3pai2nos" path="res://assets/cutscenes/inicial/cutscenes6.png" id="7_desxe"]
+[ext_resource type="Texture2D" uid="uid://cipi1q8gnq04w" path="res://assets/cutscenes/inicial/cutscenes7.png" id="8_vdd7e"]
+[ext_resource type="Texture2D" uid="uid://bd86lubqlpvfi" path="res://assets/cutscenes/inicial/cutscenes8.png" id="9_rvx3a"]
+[ext_resource type="Texture2D" uid="uid://15m1er218j6w" path="res://assets/cutscenes/inicial/cutscenes9.png" id="10_2dyqy"]
+[ext_resource type="Texture2D" uid="uid://cb6wdnfggqhs5" path="res://assets/cutscenes/inicial/cutscenes10.png" id="11_m8h3o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3slw0"]
 bg_color = Color(0.01773239, 0.017732395, 0.017732374, 1)
@@ -13,6 +23,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tmfar")
+frames_cutscene = Array[Texture2D]([ExtResource("2_urxoh"), ExtResource("3_837l3"), ExtResource("4_gqxla"), ExtResource("5_iyjbe"), ExtResource("6_x5rlm"), ExtResource("7_desxe"), ExtResource("8_vdd7e"), ExtResource("9_rvx3a"), ExtResource("10_2dyqy"), ExtResource("11_m8h3o")])
 frame = NodePath("Frame")
 next_scene_path = "uid://1k3oxtkkxt5i"
 
