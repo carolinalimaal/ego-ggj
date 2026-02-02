@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://crg2fopec5jad"]
 
 [ext_resource type="Texture2D" uid="uid://bsvciurk84r2k" path="res://assets/backgrounds/parallax_ruinas/camada 1.png" id="1_jbwdj"]
+[ext_resource type="Script" uid="uid://mwp4qvpusfik" path="res://ui/creditos.gd" id="1_jgghj"]
 [ext_resource type="Texture2D" uid="uid://1ovw6t2hq2je" path="res://assets/backgrounds/parallax_ruinas/camada 2.png" id="2_jgghj"]
 [ext_resource type="Texture2D" uid="uid://odcfu2w04stt" path="res://assets/backgrounds/parallax_ruinas/camada 3.png" id="3_hukt7"]
 [ext_resource type="Texture2D" uid="uid://uv3wmhixv5mv" path="res://assets/backgrounds/parallax_ruinas/camada 4.png" id="4_j7v2i"]
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jgghj")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=413626545]
 layout_mode = 1

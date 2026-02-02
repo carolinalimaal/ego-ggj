@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2t2gj"]
 bg_color = Color(0.019607844, 0.019607844, 0.019607844, 1)
 
-[node name="CutscenePrisma1" type="Control" unique_id=569111010 node_paths=PackedStringArray("frame")]
+[node name="CutsceneFinal" type="Control" unique_id=569111010 node_paths=PackedStringArray("frame")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +18,7 @@ grow_vertical = 2
 script = ExtResource("1_vqr05")
 frames_cutscene = Array[Texture2D]([ExtResource("3_0gpbr"), ExtResource("3_oioas"), ExtResource("4_0gpbr")])
 frame = NodePath("Frame")
-next_scene_path = "uid://cv57q4rojjpw7"
+next_scene_path = "uid://crg2fopec5jad"
 
 [node name="Panel" type="Panel" parent="." unique_id=540127607]
 layout_mode = 1
