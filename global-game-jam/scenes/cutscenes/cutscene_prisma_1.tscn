@@ -3,11 +3,13 @@
 [ext_resource type="Script" uid="uid://gptwkjypfuk0" path="res://scenes/cutscenes/cutscene.gd" id="1_1mvm3"]
 [ext_resource type="Texture2D" uid="uid://b7f0pkcrh7koa" path="res://assets/cutscenes/prisma_1/cutscenes11.png" id="2_4a6c7"]
 [ext_resource type="Texture2D" uid="uid://blhwa5q6on2ot" path="res://assets/cutscenes/prisma_1/cutscenes12.png" id="3_t2y1s"]
+[ext_resource type="AudioStream" uid="uid://dbo07vh700srd" path="res://assets/audio/music/Prisma quebrando (cena).wav" id="4_t2y1s"]
+[ext_resource type="AudioStream" uid="uid://bjpuym6mgaui1" path="res://assets/audio/sfx/prisma quebrando.wav" id="5_u25r4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2t2gj"]
 bg_color = Color(0.019607844, 0.019607844, 0.019607844, 1)
 
-[node name="CutscenePrisma1" type="Control" unique_id=569111010 node_paths=PackedStringArray("frame")]
+[node name="CutscenePrisma1" type="Control" unique_id=569111010 node_paths=PackedStringArray("frame", "sfx")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,9 +17,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1mvm3")
+cutscene_name = "Prisma1"
 frames_cutscene = Array[Texture2D]([ExtResource("2_4a6c7"), ExtResource("3_t2y1s")])
 frame = NodePath("Frame")
 next_scene_path = "uid://cv57q4rojjpw7"
+sfx = NodePath("sfx_prisma")
 
 [node name="Panel" type="Panel" parent="." unique_id=540127607]
 layout_mode = 1
@@ -35,3 +39,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=244129100]
+stream = ExtResource("4_t2y1s")
+autoplay = true
+
+[node name="sfx_prisma" type="AudioStreamPlayer" parent="." unique_id=1755731184]
+stream = ExtResource("5_u25r4")

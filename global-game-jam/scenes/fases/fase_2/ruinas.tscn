@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://cwc386mej7184" path="res://scenes/killzone/killzone.gd" id="13_pdbmh"]
 [ext_resource type="PackedScene" uid="uid://b8by0rpy6w023" path="res://scenes/checkpoint/checkpoint.tscn" id="13_pjjdo"]
 [ext_resource type="Texture2D" uid="uid://bgdcbea0ylhu8" path="res://assets/backgrounds/parallax_ruinas/camada 5.png" id="13_tyj0f"]
+[ext_resource type="AudioStream" uid="uid://bgtm5ambki3vn" path="res://assets/audio/music/Ruínas3_7 (mastered)_2.wav" id="21_n4dr1"]
 
 [sub_resource type="GDScript" id="GDScript_pjjdo"]
 script/source = "extends Node2D
@@ -338,3 +339,7 @@ position = Vector2(1039, 66)
 [node name="Totem2" parent="Totems" unique_id=1892008506 instance=ExtResource("9_ee06d")]
 position = Vector2(2106, 110)
 rotation = 3.1415927
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1518735765]
+stream = ExtResource("21_n4dr1")
+autoplay = true

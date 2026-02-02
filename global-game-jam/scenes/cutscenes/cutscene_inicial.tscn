@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bd86lubqlpvfi" path="res://assets/cutscenes/inicial/cutscenes8.png" id="9_rvx3a"]
 [ext_resource type="Texture2D" uid="uid://15m1er218j6w" path="res://assets/cutscenes/inicial/cutscenes9.png" id="10_2dyqy"]
 [ext_resource type="Texture2D" uid="uid://cb6wdnfggqhs5" path="res://assets/cutscenes/inicial/cutscenes10.png" id="11_m8h3o"]
+[ext_resource type="AudioStream" uid="uid://b4jnhd6atelt6" path="res://assets/audio/music/intro (mastered).wav" id="12_837l3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3slw0"]
 bg_color = Color(0.01773239, 0.017732395, 0.017732374, 1)
@@ -43,3 +44,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1925457429]
+stream = ExtResource("12_837l3")
+autoplay = true
+bus = &"Music"

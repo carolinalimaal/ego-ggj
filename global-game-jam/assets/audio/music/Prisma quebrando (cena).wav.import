@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dbo07vh700srd"
+path="res://.godot/imported/Prisma quebrando (cena).wav-55a8c94f5934bd201574922353b8cb57.sample"
+
+[deps]
+
+source_file="res://assets/audio/music/Prisma quebrando (cena).wav"
+dest_files=["res://.godot/imported/Prisma quebrando (cena).wav-55a8c94f5934bd201574922353b8cb57.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

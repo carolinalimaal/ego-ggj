@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://dk2t16il4o7m0" path="res://assets/arbusto/roxo.png" id="20_6vom6"]
 [ext_resource type="Texture2D" uid="uid://k10osje7vj3w" path="res://assets/arbusto/amarelo.png" id="21_olcgp"]
 [ext_resource type="PackedScene" uid="uid://bat15r4538kyp" path="res://scenes/totem/totem.tscn" id="23_6vom6"]
+[ext_resource type="AudioStream" uid="uid://bpcl83oojs230" path="res://assets/audio/music/Floresta_6 (mastered).wav" id="24_olcgp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_px1lq"]
 size = Vector2(434, 20)
@@ -260,3 +261,7 @@ position = Vector2(1344, 66)
 
 [node name="Totem2" parent="Totems" unique_id=1220990498 instance=ExtResource("23_6vom6")]
 position = Vector2(2751, 98)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1510667212]
+stream = ExtResource("24_olcgp")
+autoplay = true
