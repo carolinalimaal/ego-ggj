@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="global-game-jam"
 run/main_scene="uid://bc8vnrx3ubdl7"
 config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://ui/icon.svg"
+config/icon="uid://j4gt4wl7gix3"
 
 [audio]
 

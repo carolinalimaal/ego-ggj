@@ -306,7 +306,7 @@ shape = SubResource("RectangleShape2D_7oveg")
 
 [node name="LevelExit" parent="." unique_id=234127871 instance=ExtResource("8_earqj")]
 position = Vector2(2760, 202)
-next_scene_path = "uid://ciwiinve0or06"
+next_scene_path = "uid://soxe3x4l05aj"
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=37299938]
 zoom = Vector2(1.2, 1.2)
