@@ -20,6 +20,7 @@ var resolutions: Dictionary = {
 func _ready() -> void:
 	Dialogic.timeline_started.connect(_on_dialogue_started)
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 #func center_window() -> void:
 	#var screen_center = DisplayServer.screen_get_position() + DisplayServer.screen_get_size() / 2

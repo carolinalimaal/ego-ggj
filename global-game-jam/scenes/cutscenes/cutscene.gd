@@ -5,7 +5,6 @@ extends Control
 @export var frame: TextureRect
 @export_file("*.tscn") var next_scene_path: String
 @export var sfx: AudioStreamPlayer
-@onready var sfx_prisma: AudioStreamPlayer = $sfx_prisma
 
 var can_play: bool = true
 var count: int = 0
