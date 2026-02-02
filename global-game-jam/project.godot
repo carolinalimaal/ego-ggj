@@ -44,7 +44,7 @@ layout/style_directory={
 "dialogue_box": "res://dialogues/dialogue_box/dialogue_box.tres"
 }
 variables={
-"pegouMascaraCamaleao": true,
+"pegouMascaraCamaleao": false,
 "pegouMascaraMorcego": false
 }
 extensions_folder="res://addons/dialogic_additions"
