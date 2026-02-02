@@ -24,12 +24,12 @@ func updatePanelsColors() -> void:
 	
 func updatePanelOneColor() -> void:
 	if GameManager.player_ref.current_mask == GameManager.player_ref.Mascaras.CAMALEON:
-		mask_1_panel.color = Color(0.0, 0.716, 0.0, 1.0)
+		mask_1_panel.color = Color("3d9de287")
 	else:
-		mask_1_panel.color = Color("959595")
+		mask_1_panel.color = Color("95959587")
 
 func updatePanelTwoColor() -> void:
 	if GameManager.player_ref.current_mask == GameManager.player_ref.Mascaras.BAT:
-		mask_2_panel.color = Color(0.0, 0.716, 0.0, 1.0)
+		mask_2_panel.color = Color("3d9de287")
 	else:
-		mask_2_panel.color = Color("959595")
+		mask_2_panel.color = Color("95959587")
